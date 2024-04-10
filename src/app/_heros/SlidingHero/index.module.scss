@@ -30,7 +30,7 @@
   
   .active {
     display: block; // Show active slide
-    animation: SlideRight 30s ease; // Initial animation (slide from left to right)
+    animation: SlideRight 10s ease; // Initial animation (slide from left to right)
   }
   
   .image {
@@ -48,6 +48,7 @@
       transform: translateX(-100%);
       opacity: 0;
     }
+ 
     100% {
       transform: translateX(0);
       opacity: 1;

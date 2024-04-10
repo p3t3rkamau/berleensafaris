@@ -53,10 +53,13 @@
   margin-bottom: 16px;
   @include extra-small-break {
     margin-bottom: 5px;
+    transition: transform 0.3s ease;
   }
 
 }
-
+.icon:hover{
+  transform: scale(1.1);
+}
 
 
 .wrap {
@@ -89,6 +92,11 @@
   margin: 0;
   gap: 0px;
   width: 100%;
+  transition: .5s ease-in;
+}
+.socialLinks :hover{
+  scale: 1.1;
+
 }
 
 .socialLinkItem {
@@ -110,6 +118,16 @@
 
 .footerlist{
   list-style: none;
+  text-decoration: none;
+  transition: .5s;
+  @include small-break{
+    padding: 10px;
+  }
+  
+}
+.footerlist:hover{
+  color: #b88d5e;
+
 }
 .footerLogo{
   width: 100%;
@@ -122,6 +140,7 @@
 }
 .footerLabel{
   color: orangered;
+  text-decoration: none;
 }
 .footerWrapper{
   display: flex;
@@ -129,15 +148,28 @@
   width: 100%;
   justify-content: space-between;
   align-items:flex-start;
+  transition: .5s;
   @include small-break {
     
     display: grid;
-    justify-content: center;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 10px;
    
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
   }
 }
+.footerWrapper ul li{
+  text-decoration: none;
+  @include small-break{
+    padding: 7px;
+  }
+ 
 
+}
+.footerWrapper ul li:hover{
+  color: #b88d5e;
+}
 .copyright{
   margin-bottom: 0;
   margin-top: 10px;
@@ -154,7 +186,7 @@
  
 
   @include small-break {
-    padding: 1opx;
+    padding: 10px;
   }
 }
 
@@ -168,7 +200,16 @@
 .logo {
   width: 150px;
 }
+.title{
+  text-decoration: none;
+  list-style: none;
 
+}
+.titles{
+  text-decoration: none;
+  list-style: none;
+  padding: 30px 0 30px 0;
+}
 .nav {
   display: flex;
   gap: calc(var(--base) / 4) var(--base);

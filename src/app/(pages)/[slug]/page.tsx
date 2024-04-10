@@ -66,7 +66,6 @@ export default async function Page({ params: { slug = 'home' } }) {
       <Hero {...hero} />
       {slug === 'contact-us' && <EnquiryForm />}
       {!noHighlightImages && <SlidingHero slidingImages={HighlightImages} />}
-      <HR />
       {!noCategories && <CardComponent categories={Categories} />}
       <HR />
       <Blocks

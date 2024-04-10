@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation'
 
 import { Button } from '../../../_components/Button'
 import { Input } from '../../../_components/Input'
-import { Message } from '../../../_components/Message' // Import Message component for displaying errors and success messages
+import { Message } from '../../../_components/Message'
 import { useAuth } from '../../../_providers/Auth'
 import { Gutter } from '../../Gutter'
 
@@ -19,17 +19,23 @@ function AddReview() {
   })
   const [error, setError] = useState(null)
   const [success, setSuccess] = useState(null)
-  const [isLoading, setIsLoading] = useState(false) // State to track loading state of form submission
+  const [isLoading, setIsLoading] = useState(false)
 
   const { user } = useAuth()
   const router = usePathname()
-  // Initialize useRouter hook
 
   const handleChange = e => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     })
+  }
+
+  const handleRatingChange = value => {
+    setFormData(prevFormData => ({
+      ...prevFormData,
+      rating: value,
+    }))
   }
 
   const handleSubmit = async e => {
@@ -48,11 +54,10 @@ function AddReview() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          // Adjust payload data as needed
           rating: formData.rating,
           name: formData.name,
           message: formData.message,
-          userId: user.id, // Assuming user.id is the unique identifier for the user
+          userId: user.id,
         }),
       })
 
@@ -71,7 +76,7 @@ function AddReview() {
     } catch (error) {
       setError(error.message || 'Something went wrong.')
     } finally {
-      setIsLoading(false) // Reset loading state after form submission completes
+      setIsLoading(false)
     }
   }
 
@@ -80,25 +85,15 @@ function AddReview() {
       <div className={classes.supaviews__gradient}></div>
       <div className={classes.supaviews__add}>
         <div className={classes.supaview}>
-          <p className={classes.supaview__title}>Add a new review</p>
+          <p className={classes.supaview__title}>Describe Your Experience</p>
           <form onSubmit={handleSubmit}>
-            <fieldset className={classes.supaview__rating}>
+            <div className={classes.supaview__rating}>
               {[...Array(5)].map((_, index) => (
-                <div key={index}>
-                  <input
-                    type="radio"
-                    id={`star${index + 1}`}
-                    name="rating"
-                    value={index + 1}
-                    checked={formData.rating === index + 1}
-                    onChange={handleChange}
-                  />
-                  <label htmlFor={`star${index + 1}`}>
-                    <FaStar />
-                  </label>
+                <div key={index} onClick={() => handleRatingChange(index + 1)}>
+                  <FaStar className={formData.rating >= index + 1 ? classes.checked : ''} />
                 </div>
               ))}
-            </fieldset>
+            </div>
             <div className={classes.supaview__copy}>
               <input
                 type="text"
@@ -117,7 +112,7 @@ function AddReview() {
             </div>
             {!user ? (
               <Button
-                href={`/login?redirect=${encodeURIComponent(router.pathname)}`} // Use router.pathname to redirect to the current page after login
+                href={`/login?redirect=${encodeURIComponent(router.pathname)}`}
                 appearance="primary"
                 label="Login to comment"
                 disabled={isLoading}
@@ -133,7 +128,7 @@ function AddReview() {
               />
             )}
           </form>
-          <Message error={error} success={success} /> {/* Display error and success messages */}
+          <Message error={error} success={success} />
         </div>
       </div>
     </div>

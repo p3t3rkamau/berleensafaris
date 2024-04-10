@@ -64,16 +64,24 @@ const FooterComponent = ({ footer }: { footer: Footer }) => {
                 <hr />
                 <ul>
                   <li>
-                    <span className={classes.footerLabel}></span>All Holiday Ideas
+                    <Link href={'/posts'} className={classes.title}>
+                      <span className={classes.footerLabel}></span>All Holiday Ideas
+                    </Link>
                   </li>
                   <li>
-                    <span className={classes.footerLabel}></span>About Us
+                    <Link href={'/about-us'} className={classes.title}>
+                      <span className={classes.footerLabel}></span>About Us
+                    </Link>
                   </li>
                   <li>
-                    <span className={classes.footerLabel}></span>Blog
+                    <Link href={'/blog'} className={classes.title}>
+                      <span className={classes.footerLabel}></span>Blog
+                    </Link>
                   </li>
                   <li>
-                    <span className={classes.footerLabel}></span>Contact Us
+                    <Link href={'/contact-us'} className={classes.title}>
+                      <span className={classes.footerLabel}></span>Contact Us
+                    </Link>
                   </li>
                 </ul>
                 <div className={classes.Socials}>
@@ -108,7 +116,11 @@ const FooterComponent = ({ footer }: { footer: Footer }) => {
                 <hr />
                 {categories.map((category: Category, index: number) => (
                   <li className={classes.footerlist} key={index}>
-                    <span>{category.title}</span>
+                    <span>
+                      <Link className={classes.titles} href={'/projects'}>
+                        {category.title}
+                      </Link>
+                    </span>
                   </li>
                 ))}
               </div>
@@ -116,11 +128,34 @@ const FooterComponent = ({ footer }: { footer: Footer }) => {
               <div className={classes.InformationSection}>
                 <h3>Experiences</h3>
                 <hr />
-                <ul>
-                  <li>Big 5 Safari</li>
-                  <li>Beach</li>
-                  <li>Honey Moon</li>
-                  <li>Self Drive</li>
+                <ul className={classes.title}>
+                  <li>
+                    <Link
+                      className={classes.title}
+                      href={'/posts/following-great-trails-of-east-africa'}
+                    >
+                      Big 5 Safari
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className={classes.title} href={'/projects/mauritius-safari-holidays'}>
+                      Beach
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      className={classes.title}
+                      href={'/posts/love-is-in-the-air-trip--tanzania-with-mauritius-extension'}
+                    ></Link>
+                  </li>
+                  <li>
+                    <Link
+                      className={classes.title}
+                      href={'/posts/ultimate-backbone-of-africa-safari--kenya-tanzania'}
+                    >
+                      Self Drive
+                    </Link>
+                  </li>
                 </ul>
               </div>
               {/* <div className={classes.paymentMethod}>
