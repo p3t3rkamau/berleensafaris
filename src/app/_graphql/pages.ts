@@ -35,6 +35,27 @@ export const PAGE = `
           ${ARCHIVE_BLOCK}
         }
         ${META}
+        Categories{
+          title
+          media {
+            imagekit {
+              url
+            }
+          }
+        }
+        Accordion{
+          Heading
+          Description
+
+        }
+        HighlightImages {
+          title
+          media {
+            imagekit {
+              url
+            }
+          }
+        }
       }
     }
   }

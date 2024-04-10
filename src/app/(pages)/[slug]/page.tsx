@@ -7,10 +7,19 @@ import { Page } from '../../../payload/payload-types'
 import { staticHome } from '../../../payload/seed/home-static'
 import { fetchDoc } from '../../_api/fetchDoc'
 import { fetchDocs } from '../../_api/fetchDocs'
+import Accordion from '../../_components/Accordion'
 import { Blocks } from '../../_components/Blocks'
+// import Categories from '../../_components/Categories'
+import CardComponent from '../../_components/CategoryCard'
+import EnquiryForm from '../../_components/EnquiryForm'
 import { Hero } from '../../_components/Hero'
+import { HR } from '../../_components/HR'
+import Reviews from '../../_components/Reviews'
+import Testimonials from '../../_components/Testimonials'
+import SlidingHero from '../../_heros/SlidingHero'
 import { generateMeta } from '../../_utilities/generateMeta'
 
+import classes from './index.module.scss'
 // Payload Cloud caches all files through Cloudflare, so we don't need Next.js to cache them as well
 // This means that we can turn off Next.js data caching and instead rely solely on the Cloudflare CDN
 // To do this, we include the `no-cache` header on the fetch requests used to get the data for this page
@@ -36,7 +45,6 @@ export default async function Page({ params: { slug = 'home' } }) {
     // in production you may want to redirect to a 404  page or at least log the error somewhere
     // console.error(error)
   }
-
   // if no `home` page exists, render a static one using dummy content
   // you should delete this code once you have a home page in the CMS
   // this is really only useful for those who are demoing this template
@@ -48,15 +56,29 @@ export default async function Page({ params: { slug = 'home' } }) {
     return notFound()
   }
 
-  const { hero, layout } = page
+  const { hero, layout, Accordion: accordionData, HighlightImages, Categories } = page
+  const noHighlightImages = !HighlightImages || HighlightImages.length === 0
+  const noCategories = !Categories || Categories.length === 0
+  const noAccordionData = !accordionData || accordionData.length === 0
 
   return (
     <React.Fragment>
       <Hero {...hero} />
+      {slug === 'contact-us' && <EnquiryForm />}
+      {!noHighlightImages && <SlidingHero slidingImages={HighlightImages} />}
+      <HR />
+      {!noCategories && <CardComponent categories={Categories} />}
+      <HR />
       <Blocks
         blocks={layout}
         disableTopPadding={!hero || hero?.type === 'none' || hero?.type === 'lowImpact'}
       />
+      <HR />
+      <h3 className={classes.TestimonialHeader}>Reviews</h3>
+      <Testimonials />
+      <Reviews />
+      <HR />
+      {!noAccordionData && <Accordion accordion={accordionData} />}
     </React.Fragment>
   )
 }

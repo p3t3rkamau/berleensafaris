@@ -45,13 +45,162 @@ export const Posts: CollectionConfig = {
       required: true,
     },
     {
+      name: 'Days',
+      type: 'text',
+      required: true,
+    },
+    {
+      name: 'Price',
+      label: 'Price In Usd',
+      type: 'number',
+      required: true,
+    },
+    {
+      type: 'tabs',
+      tabs: [
+        {
+          label: 'Hero',
+          fields: [hero],
+        },
+        {
+          label: 'Content',
+          fields: [
+            {
+              name: 'layout',
+              type: 'blocks',
+              required: true,
+              blocks: [CallToAction, Content, MediaBlock, Archive],
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: 'relatedPosts',
+      type: 'relationship',
+      relationTo: 'posts',
+      hasMany: true,
+      filterOptions: ({ id }) => {
+        return {
+          id: {
+            not_in: [id],
+          },
+        }
+      },
+    },
+    slugField(),
+    {
+      name: 'HighlightImages',
+      label: 'Highlight Images',
+      labels: {
+        singular: 'image',
+        plural: 'Images',
+      },
+      type: 'array',
+      minRows: 4,
+      maxRows: 6,
+      fields: [
+        {
+          type: 'upload',
+          name: 'media',
+          relationTo: 'media',
+          required: true,
+        },
+        {
+          name: 'title',
+          type: 'text',
+          required: true,
+        },
+      ],
+    },
+    {
       name: 'categories',
       type: 'relationship',
       relationTo: 'categories',
       hasMany: true,
+      required: false,
       admin: {
         position: 'sidebar',
       },
+    },
+    {
+      name: 'Itinary',
+      label: 'Itinary',
+      labels: {
+        singular: 'itinary',
+        plural: 'itinaries',
+      },
+      type: 'array',
+      minRows: 2,
+      maxRows: 20,
+      fields: [
+        {
+          label: ({ data }) => data?.title || 'Untitled',
+          type: 'collapsible', // required
+          fields: [
+            // required
+            {
+              name: 'Heading',
+              type: 'text',
+              required: true,
+            },
+            {
+              name: 'Description',
+              type: 'textarea',
+              required: true,
+            },
+            {
+              name: 'DescriptionImages',
+              label: 'Description Images',
+              labels: {
+                singular: 'image',
+                plural: 'Images',
+              },
+              type: 'array',
+              minRows: 2,
+              maxRows: 4,
+              fields: [
+                {
+                  type: 'upload',
+                  name: 'media',
+                  relationTo: 'media',
+                  required: true,
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: 'GoodToKnowExample',
+      label: 'Good To Know',
+      labels: {
+        singular: 'goodtoknow',
+        plural: 'goodtoknow',
+      },
+      type: 'array',
+      minRows: 2,
+      maxRows: 20,
+      fields: [
+        {
+          label: ({ data }) => data?.title || 'Untitled',
+          type: 'collapsible', // required
+          fields: [
+            // required
+            {
+              name: 'Heading',
+              type: 'text',
+              required: true,
+            },
+            {
+              name: 'Description',
+              type: 'textarea',
+              required: true,
+            },
+          ],
+        },
+      ],
     },
     {
       name: 'publishedAt',
@@ -106,52 +255,5 @@ export const Posts: CollectionConfig = {
         },
       ],
     },
-    {
-      type: 'tabs',
-      tabs: [
-        {
-          label: 'Hero',
-          fields: [hero],
-        },
-        {
-          label: 'Content',
-          fields: [
-            {
-              name: 'layout',
-              type: 'blocks',
-              required: true,
-              blocks: [CallToAction, Content, MediaBlock, Archive],
-            },
-            {
-              name: 'enablePremiumContent',
-              label: 'Enable Premium Content',
-              type: 'checkbox',
-            },
-            {
-              name: 'premiumContent',
-              type: 'blocks',
-              access: {
-                read: ({ req }) => req.user,
-              },
-              blocks: [CallToAction, Content, MediaBlock, Archive],
-            },
-          ],
-        },
-      ],
-    },
-    {
-      name: 'relatedPosts',
-      type: 'relationship',
-      relationTo: 'posts',
-      hasMany: true,
-      filterOptions: ({ id }) => {
-        return {
-          id: {
-            not_in: [id],
-          },
-        }
-      },
-    },
-    slugField(),
   ],
 }

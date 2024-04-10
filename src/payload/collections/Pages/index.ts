@@ -5,6 +5,7 @@ import { adminsOrPublished } from '../../access/adminsOrPublished'
 import { Archive } from '../../blocks/ArchiveBlock'
 import { CallToAction } from '../../blocks/CallToAction'
 import { Content } from '../../blocks/Content'
+import { FormBlock } from '../../blocks/Form'
 import { MediaBlock } from '../../blocks/MediaBlock'
 import { hero } from '../../fields/hero'
 import { slugField } from '../../fields/slug'
@@ -64,12 +65,83 @@ export const Pages: CollectionConfig = {
               name: 'layout',
               type: 'blocks',
               required: true,
-              blocks: [CallToAction, Content, MediaBlock, Archive],
+              blocks: [CallToAction, Content, MediaBlock, Archive, FormBlock],
             },
           ],
         },
       ],
     },
     slugField(),
+    {
+      name: 'HighlightImages',
+      label: 'Hero Images',
+      labels: {
+        singular: 'image',
+        plural: 'Images',
+      },
+      type: 'array',
+      minRows: 4,
+      maxRows: 20,
+      fields: [
+        {
+          type: 'upload',
+          name: 'media',
+          relationTo: 'media',
+          required: true,
+        },
+        {
+          name: 'title',
+          type: 'text',
+          required: true,
+        },
+      ],
+    },
+    {
+      name: 'Categories',
+      type: 'relationship',
+      relationTo: 'categories',
+      hasMany: true,
+      required: true,
+      admin: {
+        position: 'sidebar',
+      },
+      filterOptions: ({ id }) => {
+        return {
+          id: {
+            not_in: [id],
+          },
+        }
+      },
+    },
+    {
+      name: 'Accordion',
+      label: 'Accordion',
+      labels: {
+        singular: 'accordion',
+        plural: 'accordion',
+      },
+      type: 'array',
+      minRows: 2,
+      maxRows: 20,
+      fields: [
+        {
+          label: ({ data }) => data?.title || 'Untitled',
+          type: 'collapsible', // required
+          fields: [
+            // required
+            {
+              name: 'Heading',
+              type: 'text',
+              required: true,
+            },
+            {
+              name: 'Description',
+              type: 'textarea',
+              required: true,
+            },
+          ],
+        },
+      ],
+    },
   ],
 }

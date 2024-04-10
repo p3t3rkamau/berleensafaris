@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 
-import { Page } from '../../../payload/payload-types.js'
+import { Page } from '../../../payload/payload-types'
 import { ArchiveBlock } from '../../_blocks/ArchiveBlock'
 import { CallToActionBlock } from '../../_blocks/CallToAction'
 import { CommentsBlock, type CommentsBlockProps } from '../../_blocks/Comments/index'
@@ -34,6 +34,11 @@ export const Blocks: React.FC<{
         {blocks.map((block, index) => {
           const { blockName, blockType } = block
 
+          // Check if the block has any meaningful content to render
+          if (!blockName && !blockType) {
+            return null // Skip rendering if the block has no contents
+          }
+
           if (blockType && blockType in blockComponents) {
             const Block = blockComponents[blockType]
 
@@ -65,7 +70,7 @@ export const Blocks: React.FC<{
             if (Block) {
               return (
                 <BackgroundColor key={index} invert={blockIsInverted}>
-                  <VerticalPadding top={paddingTop} bottom={paddingBottom}>
+                  <VerticalPadding key={index} top={paddingTop} bottom={paddingBottom}>
                     {/* @ts-expect-error */}
                     <Block id={toKebabCase(blockName)} {...block} />
                   </VerticalPadding>
