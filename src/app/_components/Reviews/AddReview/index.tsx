@@ -48,7 +48,7 @@ function AddReview() {
 
     setIsLoading(true)
     try {
-      const res = await fetch('/api/reviews', {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_PAYLOAD_URL}api/reviews`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
