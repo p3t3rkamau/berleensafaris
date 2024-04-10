@@ -16,7 +16,7 @@ const SlidingHero = ({ slidingImages }) => {
 
   useEffect(() => {
     // Automatically move to the next slide after 20 seconds
-    const interval = setInterval(nextSlide, 10000)
+    const interval = setInterval(nextSlide, 9000)
 
     // Cleanup function to clear the interval when component unmounts or changes
     return () => clearInterval(interval)
