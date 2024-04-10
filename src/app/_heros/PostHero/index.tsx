@@ -100,15 +100,15 @@ export const PostHero: React.FC<{
           <div className={classes.priceFlex}>
             <div>
               <h5>
-                <span>From USD </span>
+                <span className={classes.titleflash}>From USD </span>
                 {Price}
-                <span> based on people sharing</span>
+                <span className={classes.titleflash}> based on people sharing</span>
               </h5>
             </div>
             <div>
               <h6>
                 {Days}
-                <span> Days</span>
+                <span className={classes.titleflash}> Days</span>
               </h6>
             </div>
             <Button />

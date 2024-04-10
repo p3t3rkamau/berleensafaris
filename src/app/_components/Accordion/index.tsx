@@ -20,13 +20,19 @@ const Accordion = ({ accordion }) => {
     setAccordionActive(prevState => (prevState === index ? null : index))
   }
 
+  // Ensure each item in accordion array has a unique id
+  const updatedAccordion = accordion.map((item: any, index: number) => ({
+    ...item,
+    id: index + 1, // Assuming each item gets a unique id based on its index
+  }))
+
   return (
     <Fragment>
       <Gutter>
         <h3 className={classes.faqHeader}>Frequently Asked Questions</h3>
         <ul className={classes.itineraryList}>
-          {accordion
-            ?.slice(0, showAll ? accordion.length : visibleAccordions)
+          {updatedAccordion
+            ?.slice(0, showAll ? updatedAccordion.length : visibleAccordions)
             .map((item, index) => (
               <li key={item.id}>
                 <button
@@ -47,7 +53,7 @@ const Accordion = ({ accordion }) => {
               </li>
             ))}
         </ul>
-        {accordion?.length > visibleAccordions && !showAll && (
+        {updatedAccordion.length > visibleAccordions && !showAll && (
           <button className={classes.expandButton} onClick={toggleShowAll}>
             Show More
           </button>

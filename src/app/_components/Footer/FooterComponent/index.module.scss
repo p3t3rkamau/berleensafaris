@@ -65,9 +65,10 @@
 .wrap {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+
 
 
   @include small-break {
@@ -178,7 +179,7 @@
 
 
 .footer {
-  padding: 20px;
+  padding: 5px;
   background-color: #273238;
   color: white;
   padding-bottom: 5px;

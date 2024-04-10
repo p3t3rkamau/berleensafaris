@@ -1,42 +1,52 @@
 'use client'
 
-import React from 'react'
+import React, { useState } from 'react'
 
 // import Link from 'next/link'
 import { Header as HeaderType } from '../../../../payload/payload-types'
 import { useAuth } from '../../../_providers/Auth'
+import Hamburger from '../../Hamburger'
 import { CMSLink } from '../../Link'
+import CloseButton from '../closeHamburger'
 
 import classes from './index.module.scss'
 
 export const HeaderNav: React.FC<{ header: HeaderType }> = ({ header }) => {
   const navItems = header?.navItems || []
   const { user } = useAuth()
+  const [isOpen, setIsOpen] = useState(false)
+
+  const toggleMenu = () => setIsOpen(!isOpen)
+
+  const handleItemClick = () => {
+    setIsOpen(false)
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+
+    // Close the menu after a short delay
+    setTimeout(() => {
+      setIsOpen(false)
+    }, 300)
+  }
 
   return (
-    <nav
-      className={[
-        classes.nav,
-        // fade the nav in on user load to avoid flash of content and layout shift
-        // Vercel also does this in their own website header, see https://vercel.com
-        user === undefined && classes.hide,
-      ]
-        .filter(Boolean)
-        .join(' ')}
-    >
-      {navItems.map(({ link }, i) => {
-        return <CMSLink key={i} {...link} appearance="none" />
-      })}
-      {/* {user && <Link href="/account">Account</Link>} */}
-      {/*
-        // Uncomment this code if you want to add a login link to the header
-        {!user && (
-          <React.Fragment>
-            <Link href="/login">Login</Link>
-            <Link href="/create-account">Create Account</Link>
-          </React.Fragment>
+    <nav className={[classes.nav, user === undefined && classes.hide].filter(Boolean).join(' ')}>
+      <div className={classes.desktopNav}>
+        {navItems.map(({ link }, i) => (
+          <CMSLink key={i} {...link} appearance="none" />
+        ))}
+      </div>
+
+      <div className={classes.mobileNav}>
+        <Hamburger isOpen={isOpen} handleClick={toggleMenu} />
+        {isOpen && (
+          <div className={classes.mobileMenu}>
+            <CloseButton onClick={toggleMenu} />
+            {navItems.map(({ link }, i) => (
+              <CMSLink key={i} {...link} appearance="none" onClick={handleItemClick} />
+            ))}
+          </div>
         )}
-      */}
+      </div>
     </nav>
   )
 }
