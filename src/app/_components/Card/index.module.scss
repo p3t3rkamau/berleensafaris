@@ -1,7 +1,7 @@
 @import '../../_css/common';
 
 .card  {
-  border: 1px solid #beafaf;
+  border: 1px solid #ece6e6;
   border-radius: 4px;
   max-height: 400px;
   height: 100%;
@@ -15,7 +15,10 @@
   }
 
 }
-
+.card:hover{
+  border: 1px solid #b8b1b1;
+  transition: .3s ease;
+}
 .vertical {
   flex-direction: column;
 }
@@ -51,10 +54,19 @@
   }
 }
 
+
 .title {
   margin: 0;
   font-size: 16px;
   color: #2b2727;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  @include small-break {
+    font-size: 15px;
+
+  }
 }
 
 .titleLink {
@@ -77,7 +89,11 @@
   color: #b88d5e;
   gap: var(--base);
   @include small-break{
-    display: none;
+    margin: 0;
+    font-size: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
 
@@ -85,7 +101,13 @@
   margin: 0;
   font-size: 12px;
   @include small-break{
-    display: none;
+    margin: 0;
+    font-size: 10px;
+    color: #2b2727;
+  
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
 

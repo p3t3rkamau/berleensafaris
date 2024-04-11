@@ -35,6 +35,8 @@
     grid-template-columns: repeat(2, 1fr);
     border-radius: 5px;
     box-shadow: 0 8px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px 20px;
+    gap: 20px;
   }
 
   @include mid-break {
@@ -49,7 +51,20 @@
   }
 }
 
+.inclusionsItem{
+  padding: 10px;
+  border-radius: 10px;
+  background: linear-gradient(315deg, #b88c5e, #273238);
+}
+.inclusionsItem:hover
+{
+ border: #f9fdff;
+ transition: .5s;
+
+}
 .icon {
+  align-items: center;
+  justify-content: center;
   margin-bottom: 16px;
   @include extra-small-break {
     margin-bottom: 5px;
@@ -60,7 +75,9 @@
 .icon:hover{
   transform: scale(1.1);
 }
-
+.Inclusiontitle{
+  color: #f9fdff;
+}
 
 .wrap {
   display: flex;

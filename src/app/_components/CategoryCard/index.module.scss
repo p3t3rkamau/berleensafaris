@@ -35,7 +35,11 @@
   }
   .card:hover{
     scale: 1.1;
-    transition: .1s ease;
+    border: 1px solid #b8b1b1;
+    transition: .3s ease;
+    @include small-break{
+      scale: 1;
+    }
   }
   .card h3 {
     margin-top: 10px; /* Adjust as needed */
@@ -48,8 +52,8 @@
     object-fit: cover;
     @include small-break {
         max-width: 280px;
-        min-height: 200px;
-        max-height: 200px;
+        min-height: 150px;
+        max-height: 150px;
         min-width: 250px;
         overflow: hidden;
         justify-content: center;

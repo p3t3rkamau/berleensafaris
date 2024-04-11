@@ -35,7 +35,7 @@ const FooterComponent = ({ footer }: { footer: Footer }) => {
     <footer className={noHeaderFooterUrls.includes(pathname) ? classes.hide : ''}>
       <ul className={classes.inclusions}>
         {inclusions.map(inclusion => (
-          <li key={inclusion.title}>
+          <li className={classes.inclusionsItem} key={inclusion.title}>
             <Image
               src={inclusion.icon}
               alt={inclusion.title}
@@ -44,7 +44,7 @@ const FooterComponent = ({ footer }: { footer: Footer }) => {
               className={classes.icon}
             />
 
-            <h5 className={classes.title}>{inclusion.title}</h5>
+            <h5 className={classes.Inclusiontitle}>{inclusion.title}</h5>
             <p>{inclusion.description}</p>
           </li>
         ))}

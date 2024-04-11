@@ -1,93 +1,51 @@
 @use '../../_css/common.scss' as *;
+
 .SliderContainer {
-    position: relative;
-    width: 100%;
-    max-width: 1100px; // Adjust this value as needed
-    margin: 0 auto;
-    overflow: hidden;
-    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.1);
-    height: 600px;
-    box-shadow: 20px;
-    @include mid-break {
-      max-width: 700px;
-      height: 400px;
-    }
-    @include small-break{
-      max-width: 360px;
-      height: 200px;
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  overflow: hidden;
+  box-shadow: 0 8px 8px rgba(0, 0, 0, 0.1);
+  height: 600px;
+  box-shadow: 20px;
 
-    }
+  @include mid-break {
+    max-width: 700px;
+    height: 400px;
   }
-  
-  .card {
-    display: none; // Initially hide all slides
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-  
-  .active {
-    display: block; // Show active slide
-    animation: SlideRight 10s ease; // Initial animation (slide from left to right)
-  }
-  
-  .image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 20px;
-    @include small-break{
-      border-radius: 8px;
 
-    }
+  @include small-break {
+    max-width: 360px;
+    height: 200px;
   }
-  @keyframes slideRight {
-    0% {
-      transform: translateX(-100%);
-      opacity: 0;
-    }
- 
-    100% {
-      transform: translateX(0);
-      opacity: 1;
-    }
+}
+
+.card {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.active {
+  display: block;
+  opacity: 1;
+  will-change: transform, opacity;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  position: relative; // Add this line
+
+  @include small-break {
+    border-radius: 8px;
   }
-  
-  
-  @keyframes slideDown {
-    0% {
-      transform: translateY(-100%);
-      opacity: 0;
-    }
-    100% {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
-  
-  @keyframes fadeOut {
-    0% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-    }
-  }
-  
-  @keyframes bubble {
-    0% {
-      transform: scale(0);
-      opacity: 0;
-    }
-    50% {
-      transform: scale(1.5);
-      opacity: 1;
-    }
-    100% {
-      transform: scale(1);
-      opacity: 0;
-    }
-  }
-  
+}
