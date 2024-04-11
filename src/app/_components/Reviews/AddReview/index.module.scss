@@ -52,48 +52,36 @@
 /* Rating styles */
 .supaview__rating {
     display: flex;
-}
-
-.supaview__rating div {
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .starContainer {
+    position: relative;
+    margin-right: 0.5rem;
+  }
+  
+  .hiddenRadio {
+    position: absolute;
+    opacity: 0;
     cursor: pointer;
-    margin-right: 10px;
-}
-
-.supaview__rating .fa-star {
-    
-    transition: color 0.3s ease-in-out;
-}
-.rating{
-    font-size: 40px;
-}
-.supaview__rating .fa-star:hover {
-    color: yellow;
-    font-size: 30px;
-}
-
-.supaview__rating .checked {
-    color: yellow;
-    font-size: 30px;
-}
-
-/* Submit button styles */
-.supaview__submit {
-    padding: 10px 15px;
-    font-weight: 700;
-    color: #FFFFFF;
-    background-color: #64B883;
-    border: none;
-    border-radius: 20px;
+  }
+  
+  .starLabel {
     cursor: pointer;
-    outline: none;
-    transition: 0.2s ease-in-out;
-}
-
-.supaview__submit:hover {
-    background-color: #6ECB90;
-}
-
-/* Error message styles */
-.supaerror {
-    background-color: #E56460;
-}
+  }
+  
+  .checked {
+    color: #ffc107;
+    font-size: 30px;
+    transition: .2s ease-in;
+  }
+  .message{
+    margin: 10px 0;
+    padding: 10px;
+  }
+  .submit{
+    border-radius: 10px;
+    max-height: 50px;
+  }

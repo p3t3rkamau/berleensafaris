@@ -18,11 +18,11 @@ export default async function Login() {
 
   return (
     <section className={classes.login}>
-      <div className={classes.heroImg}>
+      {/* <div className={classes.heroImg}>
         <Link href="/">
-          <Image src="/Easy-logo.svg" alt="logo" width={100} height={23} className={classes.logo} />
+          <Image src="/beerleen.jpeg" alt="logo" width={100} height={23} className={classes.logo} />
         </Link>
-      </div>
+      </div> */}
 
       <div className={classes.formWrapper}>
         <div className={classes.formContainer}>

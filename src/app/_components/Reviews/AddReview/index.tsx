@@ -31,13 +31,6 @@ function AddReview() {
     })
   }
 
-  const handleRatingChange = value => {
-    setFormData(prevFormData => ({
-      ...prevFormData,
-      rating: value,
-    }))
-  }
-
   const handleSubmit = async e => {
     e.preventDefault()
 
@@ -48,16 +41,17 @@ function AddReview() {
 
     setIsLoading(true)
     try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/reviews`, {
+      const res = await fetch('/api/reviews', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
+          // Adjust payload data as needed
           rating: formData.rating,
           name: formData.name,
           message: formData.message,
-          userId: user.id,
+          userId: user.id, // Assuming user.id is the unique identifier for the user
         }),
       })
 
@@ -76,7 +70,7 @@ function AddReview() {
     } catch (error) {
       setError(error.message || 'Something went wrong.')
     } finally {
-      setIsLoading(false)
+      setIsLoading(false) // Reset loading state after form submission completes
     }
   }
 
@@ -85,12 +79,23 @@ function AddReview() {
       <div className={classes.supaviews__gradient}></div>
       <div className={classes.supaviews__add}>
         <div className={classes.supaview}>
-          <p className={classes.supaview__title}>Describe Your Experience</p>
+          <p className={classes.supaview__title}>Add a new review</p>
           <form onSubmit={handleSubmit}>
             <div className={classes.supaview__rating}>
               {[...Array(5)].map((_, index) => (
-                <div key={index} onClick={() => handleRatingChange(index + 1)}>
-                  <FaStar className={formData.rating >= index + 1 ? classes.checked : ''} />
+                <div key={index} className={classes.starContainer}>
+                  <input
+                    type="radio"
+                    id={`star${index + 1}`}
+                    name="rating"
+                    value={index + 1}
+                    checked={formData.rating === index + 1}
+                    onChange={handleChange}
+                    className={classes.hiddenRadio}
+                  />
+                  <label htmlFor={`star${index + 1}`} className={classes.starLabel}>
+                    <FaStar className={formData.rating >= index + 1 ? classes.checked : ''} />
+                  </label>
                 </div>
               ))}
             </div>
@@ -128,7 +133,7 @@ function AddReview() {
               />
             )}
           </form>
-          <Message error={error} success={success} />
+          <Message className={classes.message} error={error} success={success} />
         </div>
       </div>
     </div>
