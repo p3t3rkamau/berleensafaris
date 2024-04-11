@@ -8,6 +8,7 @@ import { Button } from '../../_components/Button'
 import { Gutter } from '../../_components/Gutter'
 import { HR } from '../../_components/HR'
 import { Media } from '../../_components/Media'
+import SafariBookingComponent from '../../_components/SafariBookingForm'
 import { formatDateTime } from '../../_utilities/formatDateTime'
 
 import classes from './index.module.scss'
@@ -195,6 +196,7 @@ export const PostHero: React.FC<{
               ))}
             </ul>
           </div>
+          <SafariBookingComponent />
         </div>
       </Gutter>
     </Fragment>
