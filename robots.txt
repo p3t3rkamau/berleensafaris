@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /private/
+Sitemap: https://berleensafaris.com/sitemap.xml
