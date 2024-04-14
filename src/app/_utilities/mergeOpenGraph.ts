@@ -2,12 +2,13 @@ import type { Metadata } from 'next'
 
 const defaultOpenGraph: Metadata['openGraph'] = {
   type: 'website',
-  siteName: 'Payload Website Template',
-  title: 'Payload Website Template',
-  description: 'An open-source website built with Payload and Next.js.',
+  siteName: 'Berleen Safaris',
+  title: 'Berleen Safaris - Explore Africas Wildlife',
+  description:
+    'Experience the adventure of a lifetime with Berleen Safaris. Explore Africas stunning wildlife and natural beauty on our expertly guided tours',
   images: [
     {
-      url: 'https://payloadcms.com/images/og-image.jpg',
+      url: 'https://berleensafaris-d9f76eb.payloadcms.app/beerleen.jpeg',
     },
   ],
 }

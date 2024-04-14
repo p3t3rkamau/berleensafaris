@@ -159,8 +159,8 @@ export const PostHero: React.FC<{
                           <Image
                             key={descIndex}
                             src={descImage.media.imagekit.url}
-                            width={400}
-                            height={350}
+                            width={600}
+                            height={550}
                             className={classes.img}
                             alt={`Image ${descIndex + 1}`}
                           />

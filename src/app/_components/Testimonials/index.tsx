@@ -36,7 +36,7 @@ const Testimonials = () => {
         name="Jonathan Walters"
         status="Verified"
         image="/assets/active-man-showing-thumb-up-avatar.png"
-        title="Nature's Symphony: Harmonizing with Berleen Wildlife Tours"
+        title="Nature's Symphony: Harmonizing with Berleen Safaris"
         quote="Berleen Safaris Tours orchestrated a symphony of sights and sounds that resonated deep within my soul. From 
         the rhythmic footsteps of wildlife to the melodic calls of birds, every moment spent in nature was a serenade to 
         the senses. With Berleen's passionate guides leading the way, I felt a profound connection to the environment and a
