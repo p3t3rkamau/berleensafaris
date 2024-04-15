@@ -14,6 +14,7 @@ import CardComponent from '../../_components/CategoryCard'
 import EnquiryForm from '../../_components/EnquiryForm'
 import { Hero } from '../../_components/Hero'
 import { HR } from '../../_components/HR'
+import QuickBooking from '../../_components/QuickEnquiry'
 import Reviews from '../../_components/Reviews'
 import Testimonials from '../../_components/Testimonials'
 import SlidingHero from '../../_heros/SlidingHero'
@@ -55,17 +56,24 @@ export default async function Page({ params: { slug = 'home' } }) {
   if (!page) {
     return notFound()
   }
-
   const { hero, layout, Accordion: accordionData, HighlightImages, Categories } = page
   const noHighlightImages = !HighlightImages || HighlightImages.length === 0
   const noCategories = !Categories || Categories.length === 0
   const noAccordionData = !accordionData || accordionData.length === 0
 
+  const scrollToForm = () => {
+    const formElement = document.querySelector('.form')
+    if (formElement) {
+      formElement.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
   return (
     <React.Fragment>
-      <Hero {...hero} />
+      {/* <Hero {...hero} /> */}
       {slug === 'contact-us' && <EnquiryForm />}
       {!noHighlightImages && <SlidingHero slidingImages={HighlightImages} />}
+      {slug === 'home' && <QuickBooking />}
       {!noCategories && <CardComponent categories={Categories} />}
       <HR />
       <Blocks

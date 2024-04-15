@@ -15,7 +15,7 @@
 }
 
 .logo {
-  width: 150px;
+  width: 200px;
   @include small-break{
     align-items: center;
     display: flex;
@@ -25,3 +25,29 @@
   }
 }
 
+.HeaderBtn{
+  color: white;
+  border: none;
+  align-items: center;
+  display: flex;
+  outline: none;
+  
+  margin: 10px 0;
+  justify-content: center;
+  @include small-break{
+    display: none;
+   
+  }
+}
+.HeaderBtn button{
+  background-color: #b08751;
+  padding: 8px 10px;
+  cursor: pointer;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+}
+.HeaderBtn button:hover{
+  background-color: #3a3c57;
+  transition: .3s ease;
+}

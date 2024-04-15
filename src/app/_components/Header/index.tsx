@@ -12,7 +12,7 @@ import { HeaderNav } from './Nav'
 
 import classes from './index.module.scss'
 
-export async function Header() {
+export async function Header({ scrollToForm }) {
   let header: Header | null = null
 
   try {
@@ -37,6 +37,9 @@ export async function Header() {
             <img className={classes.logo} alt="Beerlen logo" src="/beerleen.jpeg" />
           </Link>
           <HeaderNav header={header} />
+          <div className={classes.HeaderBtn}>
+            <button onClick={scrollToForm}>Book Now</button>
+          </div>
         </Gutter>
       </header>
     </>

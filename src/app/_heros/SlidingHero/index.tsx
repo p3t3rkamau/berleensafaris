@@ -38,8 +38,8 @@ const SlidingHero: React.FC<SlidingHeroProps> = ({ slidingImages = [] }) => {
             (typeof slider.media === 'string' ? (
               <Image
                 src={slider.media}
-                width={1200}
-                height={800}
+                width={1300}
+                height={900}
                 alt={slider.title}
                 className={classes.image}
                 priority

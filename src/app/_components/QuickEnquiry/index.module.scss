@@ -1,0 +1,124 @@
+@use '../../_css/queries.scss' as *;
+
+
+.form {
+    max-width: 650px;
+    margin: auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    @include small-break {
+        width: 100%;
+    }
+  }
+  
+  .formGroup {
+    margin-bottom: 0px;
+  }
+  
+  .label {
+    display: block;
+    font-weight: bold;
+  }
+  
+  .input,
+  .textarea{
+    width: 100%;
+    overflow: hidden;
+    padding: 10px;
+    border-radius: 10px;
+    
+    bottom: 0;
+    border: 1px solid #ccc;
+    background-color: #b88c5e;
+    font-size: 14x;
+    max-width: 200px;
+    min-width: 80px;
+  }
+  
+  .select {
+    appearance: none; /* Remove default arrow */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-repeat: no-repeat;
+  
+  }
+  
+  .submitButton {
+    background-color: #273238;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 10px;
+    width: 80px;
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 3s ease;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.submitButton:hover {
+    background-color: #0056b3;
+}
+.RequestHeader{
+    text-align: center;
+    width: 100%;
+}
+.QuickFormFlex{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    
+    gap: 10px;
+    margin: 10px;
+   
+    @include small-break{
+        flex-direction: column;
+       
+    }
+}
+.PhoneFlex{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    @include small-break{
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+        align-items: center;
+    }
+}
+.successError{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    width: 100%;
+   
+}
+
+.success{
+    color: blue;
+}
+.error{
+    color: red;
+}
+.select1, .select2{
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #b88c5e;
+    border: none;
+    max-width: 200px;
+    min-width: 80px;
+    gap: 10px;
+    border-radius: 10px;
+}
+.select2{
+   margin-right: 5px;
+
+    
+}

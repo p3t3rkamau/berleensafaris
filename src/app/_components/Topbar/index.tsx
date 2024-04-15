@@ -7,6 +7,9 @@ const TopBar = () => {
   return (
     <div className={classes.TopBarContainer}>
       <div className={classes.CurrencyWrapper}>
+        <span>Berleen Safaris</span>
+      </div>
+      <div className={classes.CurrencyWrapper}>
         <span>Currency: USD</span>
       </div>
       <div className={classes.callFLex}>
