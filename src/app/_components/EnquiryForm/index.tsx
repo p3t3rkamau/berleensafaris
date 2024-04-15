@@ -5,7 +5,8 @@ import classes from './index.module.scss'
 const EnquiryForm = () => {
   const [formData, setFormData] = useState({
     destination: '',
-    duration: '',
+    checkin: '',
+    checkout: '',
     adults: 0,
     currency: '',
     amount: 0,
@@ -62,7 +63,8 @@ const EnquiryForm = () => {
       setHasSubmitted(true)
       setFormData({
         destination: '',
-        duration: '',
+        checkin: '',
+        checkout: '',
         adults: 0,
         currency: '',
         amount: 0,
@@ -84,8 +86,8 @@ const EnquiryForm = () => {
     <div>
       <form onSubmit={onSubmit} className={classes.form}>
         <div className={classes.formGroup}>
-          <label htmlFor="destination" className={classes.label}>
-            Where Do You Want to Go?
+          <label htmlFor="duration" className={classes.label}>
+            Where Do You Want To Go?
           </label>
           <textarea
             id="destination"
@@ -93,22 +95,36 @@ const EnquiryForm = () => {
             value={formData.destination}
             onChange={handleChange}
             required
-            className={classes.textarea}
+            className={classes.input}
           />
         </div>
 
         <div className={classes.formGroup}>
-          <label htmlFor="duration" className={classes.label}>
-            Duration
+          <label htmlFor="checkin" className={classes.label}>
+            Check In
           </label>
           <input
-            type="text"
-            id="duration"
-            name="duration"
-            value={formData.duration}
+            type="date"
+            id="checkin"
+            name="checkin"
+            value={formData.checkin}
             onChange={handleChange}
             required
             className={classes.input}
+          />
+        </div>
+        <div className={classes.formGroup}>
+          <label htmlFor="checkout" className={classes.label}>
+            Check Out
+          </label>
+          <input
+            type="date"
+            id="checkout"
+            name="checkout"
+            value={formData.checkout}
+            onChange={handleChange}
+            required
+            className={classes.textarea}
           />
         </div>
 
@@ -222,11 +238,10 @@ const EnquiryForm = () => {
         <button type="submit" className={classes.submitButton}>
           Submit
         </button>
+        {isLoading && <p>Loading, please wait...</p>}
+        {hasSubmitted && <p>Form submitted successfully!</p>}
+        {error && <p>Error: {error.message}</p>}
       </form>
-
-      {isLoading && <p>Loading, please wait...</p>}
-      {hasSubmitted && <p>Form submitted successfully!</p>}
-      {error && <p>Error: {error.message}</p>}
     </div>
   )
 }
