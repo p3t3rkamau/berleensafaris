@@ -411,6 +411,8 @@ export interface Post {
 export interface Project {
   id: string;
   title: string;
+  Days: string;
+  Price: number;
   categories?: (string | Category)[] | null;
   publishedAt?: string | null;
   hero: {
