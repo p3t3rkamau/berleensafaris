@@ -37,14 +37,12 @@ const LoginForm: React.FC = () => {
         await login(data)
         if (redirect?.current) router.push(redirect.current as string)
         else router.push('/')
-        window.location.href = '/'
       } catch (_) {
         setError('There was an error with the credentials provided. Please try again.')
       }
     },
     [login, router],
   )
-
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={classes.form}>
       <Message error={error} className={classes.message} />

@@ -4,6 +4,7 @@
   display: grid;
   grid-template-columns: 1fr 45%;
   height: 100vh;
+  background-image: url('/assets/images/Destinations-Banner.jpg');
 
   @include mid-break {
     grid-template-columns: 1fr;
