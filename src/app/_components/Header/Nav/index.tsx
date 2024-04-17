@@ -58,18 +58,20 @@ export const HeaderNav: React.FC<{ header: HeaderType }> = ({ header }) => {
                       if (typeof category === 'string') {
                         // Handle the case where category is a string
                         return (
-                          <Link href="/posts">
+                          <Link className={classes.MiniCategories} href="/posts">
                             <li key={index}>{category}</li>
                           </Link>
                         )
                       } else {
                         // Handle the case where category is a Category object
                         return (
-                          <Link href="/" className={classes.MiniCategories}>
-                            <li className={classes.MiniCategoriesLinks} key={index}>
-                              {category.title}
-                            </li>
-                          </Link>
+                          <div className={classes.MiniCategoriesLinks}>
+                            <Link href="/posts" className={classes.MiniCategories}>
+                              <li className={classes.MiniCategoriesLinks} key={index}>
+                                {category.title}
+                              </li>
+                            </Link>
+                          </div>
                         )
                       }
                     })}

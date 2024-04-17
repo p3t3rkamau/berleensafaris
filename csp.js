@@ -33,6 +33,7 @@ const policies = {
     'https://maps.googleapis.com',
     'https://imagekit.io',
     'https://ik.imagekit.io/',
+    'https://berleensafaris.com',
     'https://berleensafaris-d9f76eb.payloadcms.app', // Add this line to allow connections to the specified domain
   ],
 }
