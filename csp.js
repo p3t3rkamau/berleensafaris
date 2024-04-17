@@ -33,6 +33,8 @@ const policies = {
     'https://maps.googleapis.com',
     'https://imagekit.io',
     'https://ik.imagekit.io/',
+    'https://berleensafaris-d9f76eb.payloadcms.app/api/comments',
+    'https://berleensafaris.com/api/comments',
     'https://berleensafaris.com/api/reviews',
     'https://berleensafaris-d9f76eb.payloadcms.app/api/reviews',
     'https://berleensafaris.com/api/form-submissions',

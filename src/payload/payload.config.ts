@@ -84,6 +84,8 @@ export default buildConfig({
     'https://berleensafaris-d9f76eb.payloadcms.app/api/form-submissions',
     'https://berleensafaris.com/api/reviews',
     'https://berleensafaris-d9f76eb.payloadcms.app/api/reviews',
+    'https://berleensafaris-d9f76eb.payloadcms.app/api/comments',
+    'https://berleensafaris.com/api/comments',
   ].filter(Boolean),
   csrf: [process.env.PAYLOAD_PUBLIC_SERVER_URL || ''].filter(Boolean),
   endpoints: [
