@@ -6,6 +6,9 @@
   height: 100vh;
   background-image: url('/assets/images/Following-Great-Trails-of-East-Africa-1024x707.jpg');
   overflow: auto;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 
   @include mid-break {
     grid-template-columns: 1fr;
