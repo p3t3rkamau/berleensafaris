@@ -16,6 +16,10 @@ export const LINK_FIELDS = ({ disableAppearance, disableLabel }: Args = {}): str
       url
     }
   }
+  MiniCategories{
+    title
+    
+  }
   reference {
     relationTo
     value {

@@ -38,7 +38,9 @@ export async function Header({ scrollToForm }) {
           </Link>
           <HeaderNav header={header} />
           <div className={classes.HeaderBtn}>
-            <button onClick={scrollToForm}>Book Now</button>
+            <Link href="/contact-us">
+              <button onClick={scrollToForm}>Book Now</button>
+            </Link>
           </div>
         </Gutter>
       </header>

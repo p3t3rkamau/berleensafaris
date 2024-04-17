@@ -1,5 +1,7 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
+
+import { Image } from '../Media/Image'
 
 import classes from './index.module.scss'
 const QuickBooking = () => {
@@ -12,6 +14,22 @@ const QuickBooking = () => {
     CheckOutDate: '',
     BudgetPerPerson: '',
   })
+
+  const [isFormExpanded, setIsFormExpanded] = useState(false)
+  const formContainerRef = useRef(null)
+  const formContentRef = useRef(null)
+
+  useEffect(() => {
+    if (isFormExpanded) {
+      formContainerRef.current.style.height = 'auto'
+    } else {
+      formContainerRef.current.style.height = '21vh'
+    }
+  }, [isFormExpanded])
+
+  const toggleForm = () => {
+    setIsFormExpanded(!isFormExpanded)
+  }
 
   const [isLoading, setIsLoading] = useState(false)
   const [hasSubmitted, setHasSubmitted] = useState(false)
@@ -79,9 +97,10 @@ const QuickBooking = () => {
   return (
     <div>
       <h3 className={classes.RequestHeader}>Quick Request</h3>
-      <form onSubmit={onSubmit} className={classes.form}>
-        <div className={classes.QuickFormFlex}>
+      <form ref={formContainerRef} onSubmit={onSubmit} className={classes.form}>
+        <div ref={formContentRef} className={classes.QuickFormFlex}>
           <div className={classes.formGroup}>
+            <label className={classes.label}>Fullname</label>
             <input
               placeholder="Fullname"
               id="fullname"
@@ -93,43 +112,44 @@ const QuickBooking = () => {
             />
           </div>
 
-          <div className={classes.PhoneFlex}>
-            <div className={classes.formGroup}>
-              <input
-                type="email"
-                placeholder="Email Address"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-                className={classes.input}
-              />
-            </div>
-            <div className={classes.formGroup}>
-              <input
-                placeholder="Number Of Travellers"
-                type="text"
-                id="NoOfTravellers"
-                name="NoOfTravellers"
-                value={formData.NoOfTravellers}
-                onChange={handleChange}
-                required
-                className={classes.input}
-              />
-            </div>
+          <div className={classes.formGroup}>
+            <label className={classes.label}>Email</label>
+            <input
+              type="email"
+              placeholder="Email Address"
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+              className={classes.input}
+            />
+          </div>
+          <div className={classes.formGroup}>
+            <label className={classes.label}>Number Of Travellers</label>
+            <input
+              placeholder="Number Of Travellers"
+              type="number"
+              id="NoOfTravellers"
+              name="NoOfTravellers"
+              value={formData.NoOfTravellers}
+              onChange={handleChange}
+              required
+              className={classes.input}
+            />
           </div>
         </div>
 
         <div className={classes.QuickFormFlex}>
           <div>
+            <label className={classes.label}>Destination</label>
             <select
               id="Destination"
               name="destination"
               value={formData.destination}
               onChange={handleChange}
               required
-              className={classes.select1}
+              className={classes.select}
             >
               <option value="">Select Destination</option>
               <option value="Kenya">Kenya</option>
@@ -141,33 +161,35 @@ const QuickBooking = () => {
               <option value="Zambia">Zambia</option>
             </select>
           </div>
-          <div className={classes.PhoneFlex}>
-            <div className={classes.formGroup}>
-              <input
-                type="date"
-                placeholder="Check In Date"
-                id="checkinDate"
-                name="checkinDate"
-                value={formData.checkinDate}
-                onChange={handleChange}
-                required
-                className={classes.input}
-              />
-            </div>
-            <div className={classes.formGroup}>
-              <input
-                type="date"
-                placeholder="Check Out Date"
-                id="CheckOutDate"
-                name="CheckOutDate"
-                value={formData.CheckOutDate}
-                onChange={handleChange}
-                required
-                className={classes.input}
-              />
-            </div>
+
+          <div className={classes.formGroup}>
+            <label className={classes.label}>Check IN Date</label>
+            <input
+              type="date"
+              placeholder="Check In Date"
+              id="checkinDate"
+              name="checkinDate"
+              value={formData.checkinDate}
+              onChange={handleChange}
+              required
+              className={classes.input}
+            />
           </div>
           <div className={classes.formGroup}>
+            <label className={classes.label}>Check Out Date</label>
+            <input
+              type="date"
+              placeholder="Check Out Date"
+              id="CheckOutDate"
+              name="CheckOutDate"
+              value={formData.CheckOutDate}
+              onChange={handleChange}
+              required
+              className={classes.input}
+            />
+          </div>
+          <div className={classes.formGroup}>
+            <label className={classes.label}>Budget Per Person</label>
             <select
               placeholder="Budget Per Person"
               id="BudgetPerPerson"
@@ -175,7 +197,7 @@ const QuickBooking = () => {
               value={formData.BudgetPerPerson}
               onChange={handleChange}
               required
-              className={classes.select2}
+              className={classes.select}
             >
               <option value="">Budget Per Person</option>
               <option value="$2000-$3000">$2000-$3000</option>
@@ -195,6 +217,11 @@ const QuickBooking = () => {
           {error && <p className={classes.error}>Error: {error.message}</p>}
         </div>
       </form>
+      <div className={classes.toggleForm}>
+        <button className={classes.togglebtn} onClick={toggleForm}>
+          {isFormExpanded ? 'View Less' : 'View More...'}
+        </button>
+      </div>
     </div>
   )
 }

@@ -3,48 +3,105 @@
 
 .form {
     max-width: 650px;
+    min-height: 42vh !important;
     margin: auto;
     padding: 20px;
     background-color: #ffffff;
     border-radius: 8px;
+    position: relative;
+    
     @include small-break {
         width: 100%;
+        min-height: 20vh !important;
+        overflow: hidden;
+        transition: height 0.9s ease-in-out;
+      
     }
-  }
-  
-  .formGroup {
-    margin-bottom: 0px;
+}
+.toggleForm{
+    display: none;
+    @include small-break{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+       
+    }  
+}
+.toggleForm button{
+    background-color: #273238;
+    border: none;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    width: 100px;
+    cursor: pointer;
+}
+.toggleForm button:hover{
+    background-color: #b08751;
+    transition: .3s ease;
+    
+}
+
+
+.formGroup {
+margin-bottom: 0px;
+@include small-break{
+    
+
+}
+    
   }
   
   .label {
     display: block;
-    font-weight: bold;
+    padding: 0;
+    margin: 0;
+    font-size: 12px;
+    color: #81878a;
   }
-  
-  .input,
-  .textarea{
-    width: 100%;
-    overflow: hidden;
-    padding: 10px;
-    border-radius: 10px;
-    
-    bottom: 0;
-    border: 1px solid #ccc;
-    background-color: #b88c5e;
-    font-size: 14x;
-    max-width: 200px;
-    min-width: 80px;
-  }
-  
-  .select {
+
+.select {
     appearance: none; /* Remove default arrow */
     -webkit-appearance: none;
     -moz-appearance: none;
     background-repeat: no-repeat;
   
-  }
-  
-  .submitButton {
+}
+.QuickFormFlex{
+    width: 100%;
+    display: flex;
+    position: relative;
+    justify-content: space-around;
+    gap: 5px;
+    @include small-break{
+        flex-direction: column;
+        opacity: 1;
+        transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+        transform: translateY(0);
+    }
+}
+.formGroup input{
+    padding: 10px;
+    background-color: #b08751;
+    color: white;
+    width: 100%;
+    outline: none;
+    border: none;
+    @include small-break{
+        border-radius: 8px;
+    }
+}
+.formGroup input::placeholder{
+    color: white;
+}
+.QuickFormFlex select{
+    padding: 10px;
+    background-color: #b08751;
+    color: white;
+    border-radius: 8px;
+    width: 100%;
+}
+.submitButton {
     background-color: #273238;
     color: white;
     border: none;
@@ -66,33 +123,7 @@
     text-align: center;
     width: 100%;
 }
-.QuickFormFlex{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    
-    gap: 10px;
-    margin: 10px;
-   
-    @include small-break{
-        flex-direction: column;
-       
-    }
-}
-.PhoneFlex{
-    display: flex;
-    width: 100%;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    @include small-break{
-        display: flex;
-        width: 100%;
-        justify-content: space-around;
-        align-items: center;
-    }
-}
+
 .successError{
     align-items: center;
     justify-content: center;
@@ -106,19 +137,4 @@
 }
 .error{
     color: red;
-}
-.select1, .select2{
-    padding: 10px;
-    border: 1px solid #ccc;
-    background-color: #b88c5e;
-    border: none;
-    max-width: 200px;
-    min-width: 80px;
-    gap: 10px;
-    border-radius: 10px;
-}
-.select2{
-   margin-right: 5px;
-
-    
 }

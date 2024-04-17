@@ -49,14 +49,9 @@ export interface Page {
             url?: string | null;
             label: string;
             icon?: string | Media | null;
+            MiniCategories?: (string | Category)[] | null;
             appearance?: ('default' | 'primary' | 'secondary') | null;
           };
-          id?: string | null;
-        }[]
-      | null;
-    DescriptionImages?:
-      | {
-          media: string | Media;
           id?: string | null;
         }[]
       | null;
@@ -80,6 +75,7 @@ export interface Page {
                 url?: string | null;
                 label: string;
                 icon?: string | Media | null;
+                MiniCategories?: (string | Category)[] | null;
                 appearance?: ('primary' | 'secondary') | null;
               };
               id?: string | null;
@@ -108,6 +104,7 @@ export interface Page {
                 url?: string | null;
                 label: string;
                 icon?: string | Media | null;
+                MiniCategories?: (string | Category)[] | null;
                 appearance?: ('default' | 'primary' | 'secondary') | null;
               };
               id?: string | null;
@@ -253,14 +250,9 @@ export interface Post {
             url?: string | null;
             label: string;
             icon?: string | Media | null;
+            MiniCategories?: (string | Category)[] | null;
             appearance?: ('default' | 'primary' | 'secondary') | null;
           };
-          id?: string | null;
-        }[]
-      | null;
-    DescriptionImages?:
-      | {
-          media: string | Media;
           id?: string | null;
         }[]
       | null;
@@ -284,6 +276,7 @@ export interface Post {
                 url?: string | null;
                 label: string;
                 icon?: string | Media | null;
+                MiniCategories?: (string | Category)[] | null;
                 appearance?: ('primary' | 'secondary') | null;
               };
               id?: string | null;
@@ -312,6 +305,7 @@ export interface Post {
                 url?: string | null;
                 label: string;
                 icon?: string | Media | null;
+                MiniCategories?: (string | Category)[] | null;
                 appearance?: ('default' | 'primary' | 'secondary') | null;
               };
               id?: string | null;
@@ -417,8 +411,6 @@ export interface Post {
 export interface Project {
   id: string;
   title: string;
-  Days: string;
-  Price: number;
   categories?: (string | Category)[] | null;
   publishedAt?: string | null;
   hero: {
@@ -438,14 +430,9 @@ export interface Project {
             url?: string | null;
             label: string;
             icon?: string | Media | null;
+            MiniCategories?: (string | Category)[] | null;
             appearance?: ('default' | 'primary' | 'secondary') | null;
           };
-          id?: string | null;
-        }[]
-      | null;
-    DescriptionImages?:
-      | {
-          media: string | Media;
           id?: string | null;
         }[]
       | null;
@@ -469,6 +456,7 @@ export interface Project {
                 url?: string | null;
                 label: string;
                 icon?: string | Media | null;
+                MiniCategories?: (string | Category)[] | null;
                 appearance?: ('primary' | 'secondary') | null;
               };
               id?: string | null;
@@ -497,6 +485,7 @@ export interface Project {
                 url?: string | null;
                 label: string;
                 icon?: string | Media | null;
+                MiniCategories?: (string | Category)[] | null;
                 appearance?: ('default' | 'primary' | 'secondary') | null;
               };
               id?: string | null;
@@ -814,6 +803,7 @@ export interface Header {
           url?: string | null;
           label: string;
           icon?: string | Media | null;
+          MiniCategories?: (string | Category)[] | null;
         };
         id?: string | null;
       }[]
@@ -837,6 +827,7 @@ export interface Footer {
           url?: string | null;
           label: string;
           icon?: string | Media | null;
+          MiniCategories?: (string | Category)[] | null;
         };
         id?: string | null;
       }[]
