@@ -1,8 +1,6 @@
 'use client'
 import React, { useEffect, useRef, useState } from 'react'
 
-import { Image } from '../Media/Image'
-
 import classes from './index.module.scss'
 const QuickBooking = () => {
   const [formData, setFormData] = useState({
