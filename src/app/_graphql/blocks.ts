@@ -92,3 +92,54 @@ export const FORM_BLOCK = `
   }
 }
 `
+export const CONTENT_MEDIA = `
+  ...on ContentMedia{
+    blockType
+    mediaPosition
+    richText
+    media {
+      imagekit {
+        url
+      }
+    }
+  }
+`
+
+export const DOUBLE_MEDIA_CONTENT = `
+  ... on DoubleMediaContent {
+    blockType
+    mediaContentFields {
+      MoreImages {
+        Images {
+          type
+          TwoImages {
+            media {
+              imagekit {
+                url
+              }
+            }
+            
+          }
+          TrippleImages {
+            media {
+              imagekit {
+                url
+              }
+            }
+            
+          }
+          FourImages {
+            media {
+              imagekit {
+                url
+              }
+            }
+            
+          }
+          
+        }
+        
+      }
+    }
+  }
+`

@@ -5,6 +5,8 @@ import { adminsOrPublished } from '../../access/adminsOrPublished'
 import { Archive } from '../../blocks/ArchiveBlock'
 import { CallToAction } from '../../blocks/CallToAction'
 import { Content } from '../../blocks/Content'
+import { ContentMedia } from '../../blocks/ContentMedia'
+import { DoubleImagesBlock } from '../../blocks/DoubleMedia/ManyImages'
 import { FormBlock } from '../../blocks/Form'
 import { MediaBlock } from '../../blocks/MediaBlock'
 import { hero } from '../../fields/hero'
@@ -65,7 +67,15 @@ export const Pages: CollectionConfig = {
               name: 'layout',
               type: 'blocks',
               required: true,
-              blocks: [CallToAction, Content, MediaBlock, Archive, FormBlock],
+              blocks: [
+                CallToAction,
+                DoubleImagesBlock,
+                ContentMedia,
+                Content,
+                MediaBlock,
+                Archive,
+                FormBlock,
+              ],
             },
           ],
         },

@@ -117,7 +117,8 @@ const FooterComponent = ({ footer }: { footer: Footer }) => {
                 {categories.map((category: Category, index: number) => (
                   <li className={classes.footerlist} key={index}>
                     <span>
-                      <Link className={classes.titles} href={'/projects'}>
+                      <Link className={classes.title} href={`/${category?.CustomUrl}`} passHref>
+                        {' '}
                         {category.title}
                       </Link>
                     </span>

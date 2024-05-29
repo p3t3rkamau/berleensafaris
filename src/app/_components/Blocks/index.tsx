@@ -5,6 +5,8 @@ import { ArchiveBlock } from '../../_blocks/ArchiveBlock'
 import { CallToActionBlock } from '../../_blocks/CallToAction'
 import { CommentsBlock, type CommentsBlockProps } from '../../_blocks/Comments/index'
 import { ContentBlock } from '../../_blocks/Content'
+import { ContentMediaBlock } from '../../_blocks/ContentMedia'
+import { DoubleMediaContent } from '../../_blocks/DoubleMediaImages'
 import { MediaBlock } from '../../_blocks/MediaBlock'
 import { RelatedPosts, type RelatedPostsProps } from '../../_blocks/RelatedPosts'
 import { toKebabCase } from '../../_utilities/toKebabCase'
@@ -18,6 +20,8 @@ const blockComponents = {
   archive: ArchiveBlock,
   relatedPosts: RelatedPosts,
   comments: CommentsBlock,
+  // contentMedia: ContentMediaBlock,
+  // doubleMedia: DoubleMediaContent,
 }
 
 export const Blocks: React.FC<{

@@ -101,6 +101,9 @@
 .description {
   margin: 0;
   font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   @include small-break{
     margin: 0;
     font-size: 10px;

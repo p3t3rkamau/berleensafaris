@@ -21,7 +21,6 @@ function AddReview() {
   const [success, setSuccess] = useState(null)
   const [isLoading, setIsLoading] = useState(false)
 
-  const { user } = useAuth()
   const router = usePathname()
 
   const handleChange = e => {
@@ -33,11 +32,6 @@ function AddReview() {
 
   const handleSubmit = async e => {
     e.preventDefault()
-
-    if (!user) {
-      setError('Please log in to add a review.')
-      return
-    }
 
     setIsLoading(true)
     try {
@@ -51,7 +45,6 @@ function AddReview() {
           rating: formData.rating,
           name: formData.name,
           message: formData.message,
-          userId: user.id, // Assuming user.id is the unique identifier for the user
         }),
       })
 
@@ -115,23 +108,14 @@ function AddReview() {
                 onChange={handleChange}
               ></textarea>
             </div>
-            {!user ? (
-              <Button
-                href={`/login?redirect=${encodeURIComponent(router.pathname)}`}
-                appearance="primary"
-                label="Login to comment"
-                disabled={isLoading}
-                className={classes.submit}
-              />
-            ) : (
-              <Button
-                type="submit"
-                appearance="primary"
-                label={isLoading ? 'Processing' : 'Add Review'}
-                disabled={isLoading}
-                className={classes.submit}
-              />
-            )}
+
+            <Button
+              type="submit"
+              appearance="primary"
+              label={isLoading ? 'Processing' : 'Add Review'}
+              disabled={isLoading}
+              className={classes.submit}
+            />
           </form>
           <Message className={classes.message} error={error} success={success} />
         </div>

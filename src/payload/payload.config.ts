@@ -38,6 +38,7 @@ dotenv.config({
 export default buildConfig({
   admin: {
     user: Users.slug,
+    css: path.resolve(__dirname, '../../tailwind.css'),
     bundler: webpackBundler(), // bundler-config
     components: {
       // The `BeforeLogin` component renders a message that you see while logging into your admin panel.
@@ -59,6 +60,16 @@ export default buildConfig({
             './emptyModuleMock.js',
           ),
         },
+      },
+      module: {
+        ...config.module,
+        rules: [
+          ...config.module.rules,
+          {
+            test: /\tailwind.css$/i,
+            use: ['css-loader', 'postcss-loader'],
+          },
+        ],
       },
     }),
   },

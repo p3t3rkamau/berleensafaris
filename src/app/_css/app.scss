@@ -2,6 +2,8 @@
 @use './colors.scss' as *;
 @use './type.scss' as *;
 @import "./theme.scss";
+@tailwind components;
+@tailwind utilities;
 
 :root {
   --base: 24px;
@@ -10,6 +12,16 @@
 
   --gutter-h: 180px;
   --block-padding: 120px;
+
+  --background-color: #f0f0f0;
+  --header-background-color: #b08751;
+  --header-color: #fff;
+  --avatar-background-color: #fff;
+  --user-message-background-color: #e6e6e6;
+  --user-message-color: #333;
+  --bot-message-background-color: #b08751;
+  --bot-message-color: #fff;
+  --input-background-color: #f0f0f0;
 
   @include large-break {
     --gutter-h: 144px;
