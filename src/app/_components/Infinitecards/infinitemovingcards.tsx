@@ -27,8 +27,11 @@ export const InfiniteMovingCard = ({
 
   useEffect(() => {
     addAnimation()
-  }, [])
+  }, [addAnimation]) // Empty dependency array
+
   const [start, setStart] = useState(false)
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   function addAnimation() {
     if (containerRef.current && scrollerRef.current) {
       const scrollerContent = Array.from(scrollerRef.current.children)
@@ -45,6 +48,7 @@ export const InfiniteMovingCard = ({
       setStart(true)
     }
   }
+
   const getDirection = () => {
     if (containerRef.current) {
       if (direction === 'left') {

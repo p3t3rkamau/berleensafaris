@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import { FaEdit } from 'react-icons/fa'
 import { LuRefreshCcw } from 'react-icons/lu'
 import { MdCloseFullscreen } from 'react-icons/md'
@@ -301,7 +301,7 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ onClose }) => {
     }
   }
 
-  const clearChat = () => {
+  const clearChat = useCallback(() => {
     // Clear local storage
     localStorage.clear()
 
@@ -325,16 +325,39 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ onClose }) => {
     setEmailAddress('')
     setConversationStep(ConversationStep.Welcome)
     setInitialMessagesDisplayed(false)
-  }
+  }, [
+    clearConversation,
+    setMessages,
+    setDateSelected,
+    setShowRangeSlider,
+    setShowBudgetInput,
+    setShowNameInput,
+    setShowEmailAddressInput,
+    setShowPhoneNumberInput,
+    setShowDestinationOptions,
+    setSelectedDestination,
+    setSelectedDate,
+    setInitialMessagesDisplayed,
+    setSelectedPeople,
+    setBudget,
+    setTravelerName,
+    setPhoneNumber,
+    setEmailAddress,
+    setConversationStep,
+  ])
 
-  const clearChatAfterTimeout = () => {
+  const clearChatAfterTimeout = useCallback(() => {
     setTimeout(() => {
       const savedMessages = localStorage.getItem('messages')
       if (savedMessages && JSON.parse(savedMessages).length > 0) {
         clearChat()
       }
     }, 10 * 60 * 1000) // 10 minutes in milliseconds
-  }
+  }, [clearChat])
+
+  useEffect(() => {
+    clearChatAfterTimeout()
+  }, [clearChatAfterTimeout, messages.length])
 
   const handleEditMessage = (messageText: string) => {
     const emailRegex = /\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/i

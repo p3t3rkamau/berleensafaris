@@ -41,14 +41,14 @@ const SlidingHero: React.FC<SlidingHeroProps> = ({
 
   const nextSmallSlide = useCallback(() => {
     setCurrentSmallSlideIndex(prevIndex =>
-      prevIndex === smallSliderImages.length - 1 ? 0 : prevIndex + 1,
-    )
+      // eslint-disable-next-line prettier/prettier
+      prevIndex === smallSliderImages.length - 1 ? 0 : prevIndex + 1,)
   }, [smallSliderImages])
 
   const prevSmallSlide = useCallback(() => {
     setCurrentSmallSlideIndex(prevIndex =>
-      prevIndex === 0 ? smallSliderImages.length - 1 : prevIndex - 1,
-    )
+      // eslint-disable-next-line prettier/prettier
+      prevIndex === 0 ? smallSliderImages.length - 1 : prevIndex - 1,)
   }, [smallSliderImages])
 
   useEffect(() => {

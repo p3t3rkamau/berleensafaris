@@ -17,7 +17,67 @@ const contentData = [
     buttonText: 'Join Now',
     buttonLink: '#',
   },
-  // Add more content objects as needed
+  {
+    title: 'Safari Odyssey: Embrace the Wild Journey.',
+    description:
+      'Embark on a thrilling safari adventure and experience the wild like never before.',
+    buttonText: 'Start Your Journey',
+    buttonLink: '#',
+  },
+  {
+    title: 'Wilderness Unraveled, Adventure One at a Time.',
+    description: 'Unravel the mysteries of the wilderness, one adventure at a time.',
+    buttonText: 'Discover More',
+    buttonLink: '#',
+  },
+  {
+    title: "Discover Africa's Untamed Heartbeat, Boldly.",
+    description: "Boldly explore Africa's untamed heartbeat and witness its raw beauty.",
+    buttonText: 'Explore Now',
+    buttonLink: '#',
+  },
+  {
+    title: 'Free Wildlife Roams: Unleash Adventurous Spirit.',
+    description: 'Let your adventurous spirit roam free in the wild where wildlife roams untamed.',
+    buttonText: 'Unleash Now',
+    buttonLink: '#',
+  },
+  {
+    title: "Immersive Beauty: Africa's Savannas Majesty.",
+    description: "Immerse yourself in the majestic beauty of Africa's vast savannas.",
+    buttonText: 'Experience Beauty',
+    buttonLink: '#',
+  },
+  {
+    title: "Witness Life's Primal Dance: African Safari.",
+    description: 'Witness the primal dance of life on an unforgettable African safari.',
+    buttonText: 'Witness Now',
+    buttonLink: '#',
+  },
+  {
+    title: 'Explore Untamed Majesty, Wilderness Realm.',
+    description: 'Explore the untamed majesty of the wilderness and its breathtaking realm.',
+    buttonText: 'Explore Now',
+    buttonLink: '#',
+  },
+  {
+    title: "Senses Awakened: Nature's Playground Journey.",
+    description: "Awaken your senses on a journey through nature's ultimate playground.",
+    buttonText: 'Awaken Senses',
+    buttonLink: '#',
+  },
+  {
+    title: "Secrets Unveiled: Africa's Captivating Wilderness.",
+    description: "Unveil the secrets of Africa's captivating wilderness.",
+    buttonText: 'Unveil Secrets',
+    buttonLink: '#',
+  },
+  {
+    title: 'Transformative Adventure: Into Wild Unknown.',
+    description: 'Embark on a transformative adventure into the wild unknown.',
+    buttonText: 'Embark Now',
+    buttonLink: '#',
+  },
 ]
 
 const ContentSlider = () => {
