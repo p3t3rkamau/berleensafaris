@@ -131,6 +131,60 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ onClose }) => {
     showPhoneNumberInput,
   ])
 
+  const clearChat = useCallback(() => {
+    // Clear local storage
+    localStorage.clear()
+
+    // Reset all states
+    clearConversation()
+    setMessages([])
+    setDateSelected(false)
+    setShowRangeSlider(false)
+    setShowBudgetInput(false)
+    setShowNameInput(false)
+    setShowEmailAddressInput(false)
+    setShowPhoneNumberInput(false)
+    setShowDestinationOptions(false)
+    setSelectedDestination('')
+    setSelectedDate(null)
+    setInitialMessagesDisplayed(false)
+    setSelectedPeople(null)
+    setBudget(null)
+    setTravelerName('')
+    setPhoneNumber('')
+    setEmailAddress('')
+    setConversationStep(ConversationStep.Welcome)
+    setInitialMessagesDisplayed(false)
+  }, [
+    clearConversation,
+    setMessages,
+    setDateSelected,
+    setShowRangeSlider,
+    setShowBudgetInput,
+    setShowNameInput,
+    setShowEmailAddressInput,
+    setShowPhoneNumberInput,
+    setShowDestinationOptions,
+    setSelectedDestination,
+    setSelectedDate,
+    setInitialMessagesDisplayed,
+    setSelectedPeople,
+    setBudget,
+    setTravelerName,
+    setPhoneNumber,
+    setEmailAddress,
+    setConversationStep,
+  ])
+
+  const clearChatAfterTimeout = useCallback(() => {
+    setTimeout(() => {
+      const savedMessages = localStorage.getItem('messages')
+      if (savedMessages && JSON.parse(savedMessages).length > 0) {
+        clearChat()
+      }
+    }, 10 * 60 * 1000) // 10 minutes in milliseconds
+  }, [clearChat])
+
   useEffect(() => {
     clearChatAfterTimeout()
     if (messages.length === 0) {
@@ -154,7 +208,7 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ onClose }) => {
 
       return () => clearTimeout(timer)
     }
-  }, [clearChatAfterTimeout, messages.length])
+  }, [clearChatAfterTimeout, messages.length, setMessages])
 
   const addMessage = (message: Message) => {
     setConversationStep(ConversationStep.OfferHelp)
@@ -185,18 +239,6 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ onClose }) => {
         onClose()
         clearChat()
       }, 5000)
-      const clearChat = () => {
-        clearConversation()
-        setMessages([])
-        localStorage.clear()
-        setDateSelected(false)
-        setShowRangeSlider(false)
-        setShowBudgetInput(false)
-        setShowNameInput(false)
-        setShowEmailAddressInput(false)
-        setShowPhoneNumberInput(false)
-        setShowDestinationOptions(false)
-      }
     }
   }
 
@@ -300,64 +342,6 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ onClose }) => {
       bottomMessageRef.current.scrollIntoView({ behavior: 'smooth' })
     }
   }
-
-  const clearChat = useCallback(() => {
-    // Clear local storage
-    localStorage.clear()
-
-    // Reset all states
-    clearConversation()
-    setMessages([])
-    setDateSelected(false)
-    setShowRangeSlider(false)
-    setShowBudgetInput(false)
-    setShowNameInput(false)
-    setShowEmailAddressInput(false)
-    setShowPhoneNumberInput(false)
-    setShowDestinationOptions(false)
-    setSelectedDestination('')
-    setSelectedDate(null)
-    setInitialMessagesDisplayed(false)
-    setSelectedPeople(null)
-    setBudget(null)
-    setTravelerName('')
-    setPhoneNumber('')
-    setEmailAddress('')
-    setConversationStep(ConversationStep.Welcome)
-    setInitialMessagesDisplayed(false)
-  }, [
-    clearConversation,
-    setMessages,
-    setDateSelected,
-    setShowRangeSlider,
-    setShowBudgetInput,
-    setShowNameInput,
-    setShowEmailAddressInput,
-    setShowPhoneNumberInput,
-    setShowDestinationOptions,
-    setSelectedDestination,
-    setSelectedDate,
-    setInitialMessagesDisplayed,
-    setSelectedPeople,
-    setBudget,
-    setTravelerName,
-    setPhoneNumber,
-    setEmailAddress,
-    setConversationStep,
-  ])
-
-  const clearChatAfterTimeout = useCallback(() => {
-    setTimeout(() => {
-      const savedMessages = localStorage.getItem('messages')
-      if (savedMessages && JSON.parse(savedMessages).length > 0) {
-        clearChat()
-      }
-    }, 10 * 60 * 1000) // 10 minutes in milliseconds
-  }, [clearChat])
-
-  useEffect(() => {
-    clearChatAfterTimeout()
-  }, [clearChatAfterTimeout, messages.length])
 
   const handleEditMessage = (messageText: string) => {
     const emailRegex = /\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/i

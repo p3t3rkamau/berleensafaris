@@ -36,6 +36,12 @@ const destinations = [
   },
 ]
 
+// const destinations = [
+//   { src: '/images/1.jpg', alt: 'Destination 1', name: 'Destination 1' },
+//   { src: '/images/2.jpg', alt: 'Destination 2', name: 'Destination 2' },
+//   { src: '/images/3.jpg', alt: 'Destination 3', name: 'Destination 3' },
+// ]
+
 const DestinationOptions: React.FC<DestinationOptionsProps> = ({ onSelectDestination }) => {
   return (
     <div className={styles.images}>
