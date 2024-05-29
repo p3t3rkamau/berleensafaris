@@ -154,7 +154,7 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ onClose }) => {
 
       return () => clearTimeout(timer)
     }
-  }, [])
+  }, [clearChatAfterTimeout, messages.length])
 
   const addMessage = (message: Message) => {
     setConversationStep(ConversationStep.OfferHelp)
@@ -419,6 +419,7 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ onClose }) => {
     }
   }
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const onSubmit = async () => {
     try {
       const response = await fetch('/api/form-submissions', {
@@ -458,7 +459,7 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ onClose }) => {
     if (conversationStep === ConversationStep.EndConversation) {
       onSubmit()
     }
-  }, [conversationStep])
+  }, [conversationStep, onSubmit])
 
   return (
     <div className={styles.container}>
