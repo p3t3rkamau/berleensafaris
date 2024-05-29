@@ -30,6 +30,7 @@
     .content {
       position: relative;
       color: white;
+      
       // text-align: center;
       // padding: 2rem;
       // background: rgba(0, 0, 0, 0.5); /* Semi-transparent background for better text readability */
@@ -38,12 +39,13 @@
 
 
       .title {
-        color: rgb(7, 7, 7);
+        color: #b08751;
+        
         font-family: cursive;
         font-size: 50px;
         font-weight: 800;
         animation: fadeInUp 1s ease-in-out;
-        text-shadow: -1px -1px 0 #ffffff, 1px -1pxrgb(255, 255, 255)000, -1px 1px 0 #ffffff, 1px 1pxrgb(230, 230, 230)000;
+        text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
 
         margin-bottom: 1rem;
         @include mid-break{
@@ -54,6 +56,8 @@
       p {
         font-size: 1.25rem;
         margin-bottom: 1.5rem;
+        background-color:  rgba(0, 0, 0, 0.5);
+        width: fit-content;
       }
 
       .btn {
@@ -84,7 +88,7 @@
         }
 
         &:hover {
-          background-color: #836e52;
+          background-color: #8a7253;
           transition: .3s ease;
         }
 

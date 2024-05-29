@@ -21,8 +21,6 @@ function AddReview() {
   const [success, setSuccess] = useState(null)
   const [isLoading, setIsLoading] = useState(false)
 
-  const router = usePathname()
-
   const handleChange = e => {
     setFormData({
       ...formData,
@@ -35,7 +33,7 @@ function AddReview() {
 
     setIsLoading(true)
     try {
-      const res = await fetch('/api/reviews', {
+      const res = await fetch(`https://berleensafaris-d9f76eb.payloadcms.app/api/reviews`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
