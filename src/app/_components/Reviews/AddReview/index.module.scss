@@ -25,6 +25,17 @@
     }
 }
 
+.formBtn button{
+  padding: 10px 20px;
+  background-color: #a1794f;
+  cursor: pointer;
+  border: none;
+  outline: none;
+
+}
+.formBtn button:hover{
+  background-color: #815d36;
+}
 
 .supaview__copy {
     display: flex;
@@ -56,6 +67,8 @@
     align-items: center;
     margin-bottom: 1rem;
   }
+
+
   
   .starContainer {
     position: relative;
