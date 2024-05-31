@@ -1,35 +1,35 @@
-'use client';
+'use client'
 
-import React, { useState } from 'react';
-import { FaStar } from 'react-icons/fa';
+import React, { useState } from 'react'
+import { FaStar } from 'react-icons/fa'
 
-import { Message } from '../../../_components/Message';
+import { Message } from '../../../_components/Message'
 
-import classes from './index.module.scss';
+import classes from './index.module.scss'
 
 function AddReview() {
   const [formData, setFormData] = useState({
     rating: null,
     name: '',
     message: '',
-  });
-  const [error, setError] = useState(null);
-  const [success, setSuccess] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
+  })
+  const [error, setError] = useState(null)
+  const [success, setSuccess] = useState(null)
+  const [isLoading, setIsLoading] = useState(false)
 
-  const handleChange = (e) => {
+  const handleChange = e => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
-    });
-  };
+    })
+  }
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = async e => {
+    e.preventDefault()
 
-    setIsLoading(true);
-    setError(null);
-    setSuccess(null);
+    setIsLoading(true)
+    setError(null)
+    setSuccess(null)
 
     try {
       const response = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/form-submissions`, {
@@ -44,26 +44,26 @@ function AddReview() {
             value,
           })),
         }),
-      });
+      })
 
-      const data = await response.json();
+      const data = await response.json()
 
       if (!response.ok) {
-        throw new Error(data.message || 'Failed to add review.');
+        throw new Error(data.message || 'Failed to add review.')
       }
 
-      setSuccess('Review submitted successfully.');
+      setSuccess('Review submitted successfully.')
       setFormData({
         rating: null,
         name: '',
         message: '',
-      });
+      })
     } catch (error) {
-      setError(error.message || 'Something went wrong.');
+      setError(error.message || 'Something went wrong.')
     } finally {
-      setIsLoading(false);
+      setIsLoading(false)
     }
-  };
+  }
 
   return (
     <div className={classes.supaviews}>
@@ -101,17 +101,13 @@ function AddReview() {
               <textarea
                 name="message"
                 placeholder="Message"
-                rows="5"
+                rows={5}
                 value={formData.message}
                 onChange={handleChange}
               ></textarea>
             </div>
             <div className={classes.formBtn}>
-              <button
-                type="submit"
-                disabled={isLoading}
-                className={classes.submit}
-              >
+              <button type="submit" disabled={isLoading} className={classes.submit}>
                 Add Review
               </button>
             </div>
@@ -120,7 +116,7 @@ function AddReview() {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default AddReview;
+export default AddReview
