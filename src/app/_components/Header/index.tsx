@@ -37,11 +37,6 @@ export async function Header({ scrollToForm }) {
             <img className={classes.logo} alt="Beerlen logo" src="/beerleen.jpeg" />
           </Link>
           <HeaderNav header={header} />
-          <div className={classes.HeaderBtn}>
-            <Link href="/contact-us">
-              <button onClick={scrollToForm}>Book Now</button>
-            </Link>
-          </div>
         </Gutter>
       </header>
     </>

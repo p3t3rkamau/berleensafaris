@@ -1,10 +1,8 @@
 import React from 'react'
 import { Metadata } from 'next'
 import { draftMode } from 'next/headers'
-import { notFound } from 'next/navigation'
 
 import { Page } from '../../../payload/payload-types'
-import { staticHome } from '../../../payload/seed/home-static'
 import { fetchDoc } from '../../_api/fetchDoc'
 import { fetchDocs } from '../../_api/fetchDocs'
 import Accordion from '../../_components/Accordion'
@@ -13,17 +11,15 @@ import { Blocks } from '../../_components/Blocks'
 import CardComponent from '../../_components/CategoryCard'
 import ExpandableFloatingActionButton from '../../_components/ChatInterface/FloatingAction/ExpandableFloatingActionButton'
 import EnquiryForm from '../../_components/EnquiryForm'
-import { Hero } from '../../_components/Hero'
 import HeroSection from '../../_components/HeroSection'
 import { HR } from '../../_components/HR'
 import { InfiniteMovingCard } from '../../_components/Infinitecards/infinitemovingcards'
 import QuickBooking from '../../_components/QuickEnquiry'
 import Reviews from '../../_components/Reviews'
-import Testimonials from '../../_components/Testimonials'
 import SlidingHero from '../../_heros/SlidingHero'
 import { generateMeta } from '../../_utilities/generateMeta'
+import NotFound from '../not-found'
 
-import classes from './index.module.scss'
 // Payload Cloud caches all files through Cloudflare, so we don't need Next.js to cache them as well
 // This means that we can turn off Next.js data caching and instead rely solely on the Cloudflare CDN
 // To do this, we include the `no-cache` header on the fetch requests used to get the data for this page
@@ -128,11 +124,11 @@ export default async function Page({ params: { slug = 'home' } }) {
   // you should delete this code once you have a home page in the CMS
   // this is really only useful for those who are demoing this template
   if (!page && slug === 'home') {
-    page = staticHome
+    page = NotFound()
   }
 
   if (!page) {
-    return notFound()
+    return NotFound()
   }
   const { hero, layout, Accordion: accordionData, HighlightImages, Categories } = page
   const noHighlightImages = !HighlightImages || HighlightImages.length === 0
@@ -261,7 +257,7 @@ export async function generateMetadata({ params: { slug = 'home' } }): Promise<M
   }
 
   if (!page) {
-    if (slug === 'home') page = staticHome
+    if (slug === 'home') page = NotFound()
   }
 
   return generateMeta({ doc: page })

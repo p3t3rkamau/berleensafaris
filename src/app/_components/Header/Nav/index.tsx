@@ -8,6 +8,7 @@ import { useAuth } from '../../../_providers/Auth'
 import Hamburger from '../../Hamburger'
 import { CMSLink } from '../../Link'
 import CloseButton from '../closeHamburger'
+import MobileNav from '../MobileNav'
 
 import classes from './index.module.scss'
 
@@ -18,6 +19,11 @@ export const HeaderNav: React.FC<{ header: HeaderType }> = ({ header }) => {
   const [isOpen, setIsOpen] = useState(false)
   const [hoveredMiniCategoryIndex, setHoveredMiniCategoryIndex] = useState(null)
   const dropdownRef = useRef(null)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen)
+  }
 
   const toggleMenu = () => setIsOpen(!isOpen)
 
@@ -146,18 +152,12 @@ export const HeaderNav: React.FC<{ header: HeaderType }> = ({ header }) => {
           </div>
         ))}
       </div>
-
-      <div className={classes.mobileNav}>
-        <Hamburger isOpen={isOpen} handleClick={toggleMenu} />
-        {isOpen && (
-          <div className={classes.mobileMenu}>
-            <CloseButton onClick={toggleMenu} />
-            {navItems.map(({ link }, i) => (
-              <CMSLink key={i} {...link} appearance="none" onClick={handleItemClick} />
-            ))}
-          </div>
-        )}
+      <div className={classes.HeaderBtn}>
+        <Link href="/contact-us">
+          <button>Book Now</button>
+        </Link>
       </div>
+      <MobileNav navItems={navItems} toggleMobileMenu={toggleMobileMenu} />
     </nav>
   )
 }
