@@ -1,69 +1,69 @@
-'use client'
-import React, { useState } from 'react'
-import { FaStar } from 'react-icons/fa'
-import { usePathname } from 'next/navigation'
+'use client';
 
-import { Button } from '../../../_components/Button'
-import { Input } from '../../../_components/Input'
-import { Message } from '../../../_components/Message'
-import { useAuth } from '../../../_providers/Auth'
-import { Gutter } from '../../Gutter'
+import React, { useState } from 'react';
+import { FaStar } from 'react-icons/fa';
 
-import classes from './index.module.scss'
+import { Message } from '../../../_components/Message';
+
+import classes from './index.module.scss';
 
 function AddReview() {
   const [formData, setFormData] = useState({
     rating: null,
     name: '',
     message: '',
-  })
-  const [error, setError] = useState(null)
-  const [success, setSuccess] = useState(null)
-  const [isLoading, setIsLoading] = useState(false)
+  });
+  const [error, setError] = useState(null);
+  const [success, setSuccess] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
-    })
-  }
+    });
+  };
 
-  const handleSubmit = async e => {
-    e.preventDefault()
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-    setIsLoading(true)
+    setIsLoading(true);
+    setError(null);
+    setSuccess(null);
+
     try {
-      const res = await fetch(`https://berleensafaris-d9f76eb.payloadcms.app/api/reviews`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/form-submissions`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          // Adjust payload data as needed
-          rating: formData.rating,
-          name: formData.name,
-          message: formData.message,
+          form: '6659121127bce12c02ff4143', // Form ID
+          submissionData: Object.entries(formData).map(([name, value]) => ({
+            field: name,
+            value,
+          })),
         }),
-      })
+      });
 
-      const data = await res.json()
+      const data = await response.json();
 
-      if (!res.ok) {
-        throw new Error(data.message || 'Failed to add review.')
+      if (!response.ok) {
+        throw new Error(data.message || 'Failed to add review.');
       }
 
-      setSuccess('Review submitted successfully.')
+      setSuccess('Review submitted successfully.');
       setFormData({
         rating: null,
         name: '',
         message: '',
-      })
+      });
     } catch (error) {
-      setError(error.message || 'Something went wrong.')
+      setError(error.message || 'Something went wrong.');
     } finally {
-      setIsLoading(false) // Reset loading state after form submission completes
+      setIsLoading(false);
     }
-  }
+  };
 
   return (
     <div className={classes.supaviews}>
@@ -106,20 +106,21 @@ function AddReview() {
                 onChange={handleChange}
               ></textarea>
             </div>
-
-            <Button
-              type="submit"
-              appearance="primary"
-              label={isLoading ? 'Processing' : 'Add Review'}
-              disabled={isLoading}
-              className={classes.submit}
-            />
+            <div className={classes.formBtn}>
+              <button
+                type="submit"
+                disabled={isLoading}
+                className={classes.submit}
+              >
+                Add Review
+              </button>
+            </div>
           </form>
           <Message className={classes.message} error={error} success={success} />
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default AddReview
+export default AddReview;
