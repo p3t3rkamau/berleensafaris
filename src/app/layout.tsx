@@ -1,5 +1,6 @@
 import React from 'react'
 import { Metadata } from 'next'
+import Script from 'next/script'
 
 import { AdminBar } from './_components/AdminBar'
 import { Footer } from './_components/Footer'
@@ -8,10 +9,12 @@ import TopBar from './_components/Topbar'
 import { Providers } from './_providers'
 import { InitTheme } from './_providers/Theme/InitTheme'
 import { mergeOpenGraph } from './_utilities/mergeOpenGraph'
+import useGoogleTagManager from './googleTagManager'
 
 import './_css/app.scss'
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  useGoogleTagManager('G-7KXD0B7Z19')
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
@@ -67,6 +70,10 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             }),
           }}
         />
+        <Script
+          strategy="afterInteractive"
+          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
+        />
       </head>
       <body>
         <Providers>
@@ -77,6 +84,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           {children}
           {/* @ts-expect-error */}
           <Footer />
+          {useGoogleTagManager(process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS)}
         </Providers>
       </body>
     </html>

@@ -9,6 +9,7 @@ const policies = {
     'https://maps.googleapis.com',
     'https://imagekit.io',
     'https://eu-central-1.aws.data.mongodb-api.com',
+    'https://www.googletagmanager.com',
   ],
   'child-src': ["'self'"],
   'style-src': ["'self'", "'unsafe-inline'", 'https://fonts.googleapis.com'],
@@ -40,7 +41,8 @@ const policies = {
     'https://berleensafaris.com/api/form-submissions',
     'https://berleensafaris-d9f76eb.payloadcms.app/api/form-submissions',
     'https://berleensafaris.com',
-    'https://berleensafaris-d9f76eb.payloadcms.app', // Add this line to allow connections to the specified domain
+    'https://berleensafaris-d9f76eb.payloadcms.app',
+    'https://www.googletagmanager.com',
   ],
 }
 
