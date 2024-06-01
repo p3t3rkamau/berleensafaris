@@ -14,7 +14,6 @@ import useGoogleTagManager from './googleTagManager'
 import './_css/app.scss'
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  useGoogleTagManager('G-7KXD0B7Z19')
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
