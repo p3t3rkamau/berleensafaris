@@ -9,6 +9,7 @@ import TopBar from './_components/Topbar'
 import { Providers } from './_providers'
 import { InitTheme } from './_providers/Theme/InitTheme'
 import { mergeOpenGraph } from './_utilities/mergeOpenGraph'
+import GoogleTagManagerInitializer from './GoogleAnalytics'
 import useGoogleTagManager from './googleTagManager'
 
 import './_css/app.scss'
@@ -83,7 +84,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           {children}
           {/* @ts-expect-error */}
           <Footer />
-          {useGoogleTagManager(process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS)}
+          <GoogleTagManagerInitializer />
         </Providers>
       </body>
     </html>
