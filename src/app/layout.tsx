@@ -1,4 +1,5 @@
 import React from 'react'
+import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google'
 import { Metadata } from 'next'
 
 import { AdminBar } from './_components/AdminBar'
@@ -78,6 +79,8 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           {/* @ts-expect-error */}
           <Footer />
         </Providers>
+        <GoogleAnalytics gaId="G-7KXD0B7Z19" />
+        <GoogleTagManager gtmId="G-7KXD0B7Z19" />
       </body>
     </html>
   )

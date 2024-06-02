@@ -43,7 +43,7 @@ const policies = {
     'https://berleensafaris-d9f76eb.payloadcms.app', // Add this line to allow connections to the specified domain
   ],
 }
-
+//function to gnerte xml
 module.exports = Object.entries(policies)
   .map(([key, value]) => {
     if (Array.isArray(value)) {
