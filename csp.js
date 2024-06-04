@@ -1,5 +1,5 @@
 const policies = {
-  'default-src': ["'self'", 'https://imagekit.io', 'https://ik.imagekit.io/'],
+  'default-src': ["'self'", 'https://imagekit.io', 'https://ik.imagekit.io/', 'https://media.giphy.com', 'https://giphy.com', ],
   'script-src': [
     "'self'",
     "'unsafe-inline'",
@@ -18,6 +18,8 @@ const policies = {
     'https://raw.githubusercontent.com',
     'https://imagekit.io',
     'https://ik.imagekit.io/',
+    'https://giphy.com',
+    'https://media.giphy.com',
   ],
   'font-src': ["'self'"],
   'frame-src': [
@@ -40,7 +42,9 @@ const policies = {
     'https://berleensafaris.com/api/form-submissions',
     'https://berleensafaris-d9f76eb.payloadcms.app/api/form-submissions',
     'https://berleensafaris.com',
-    'https://berleensafaris-d9f76eb.payloadcms.app', // Add this line to allow connections to the specified domain
+    'https://berleensafaris-d9f76eb.payloadcms.app',
+    'https://giphy.com',
+    'https://media.giphy.com',
   ],
 }
 //function to gnerte xml
