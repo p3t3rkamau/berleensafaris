@@ -49,7 +49,10 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           name="twitter:image"
           content="https://berleensafaris-d9f76eb.payloadcms.app/beerleen.jpeg"
         />
-        <meta name="google-site-verification" content="Zkz3mtUJtD707U1h_h79YiQy9vwjvaSon5ekZwiZ5LA" />
+        <meta
+          name="google-site-verification"
+          content="Zkz3mtUJtD707U1h_h79YiQy9vwjvaSon5ekZwiZ5LA"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
