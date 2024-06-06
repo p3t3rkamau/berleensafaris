@@ -1,6 +1,7 @@
 import React from 'react'
 import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google'
 import { Metadata } from 'next'
+import Script from 'next/script'
 
 import { AdminBar } from './_components/AdminBar'
 import { Footer } from './_components/Footer'
@@ -68,6 +69,21 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             }),
           }}
         />
+        <Script
+          strategy="lazyOnload"
+          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GOOGLE_ANALYTICS}`}
+        />
+
+        <Script id="ga-script" strategy="lazyOnload">
+          {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${process.env.GOOGLE_ANALYTICS}', {
+                page_path: window.location.pathname,
+              });
+                  `}
+        </Script>
       </head>
       <body>
         <Providers>
