@@ -1,5 +1,11 @@
 const policies = {
-  'default-src': ["'self'", 'https://imagekit.io', 'https://ik.imagekit.io/', 'https://media.giphy.com', 'https://giphy.com', ],
+  'default-src': [
+    "'self'",
+    'https://imagekit.io',
+    'https://ik.imagekit.io/',
+    'https://media.giphy.com',
+    'https://giphy.com',
+  ],
   'script-src': [
     "'self'",
     "'unsafe-inline'",
