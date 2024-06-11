@@ -9,6 +9,8 @@ const policies = {
     'https://maps.googleapis.com',
     'https://imagekit.io',
     'https://eu-central-1.aws.data.mongodb-api.com',
+    'https://analytics.google.com',
+    'https://google.com',
   ],
   'child-src': ["'self'"],
   'style-src': ["'self'", "'unsafe-inline'", 'https://fonts.googleapis.com'],
@@ -45,6 +47,8 @@ const policies = {
     'https://berleensafaris-d9f76eb.payloadcms.app',
     'https://giphy.com',
     'https://media.giphy.com',
+    'https://analytics.google.com',
+    'https://google.com',
   ],
 }
 //function to gnerte xml

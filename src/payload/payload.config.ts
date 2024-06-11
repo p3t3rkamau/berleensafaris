@@ -97,6 +97,8 @@ export default buildConfig({
     'https://berleensafaris-d9f76eb.payloadcms.app/api/reviews',
     'https://berleensafaris-d9f76eb.payloadcms.app/api/comments',
     'https://berleensafaris.com/api/comments',
+    'https://analytics.google.com',
+    'https://google.com',
   ].filter(Boolean),
   csrf: [
     process.env.PAYLOAD_PUBLIC_SERVER_URL || '',
@@ -107,6 +109,8 @@ export default buildConfig({
     'https://berleensafaris-d9f76eb.payloadcms.app/api/reviews',
     'https://berleensafaris-d9f76eb.payloadcms.app/api/comments',
     'https://berleensafaris.com/api/comments',
+    'https://analytics.google.com',
+    'https://google.com',
   ].filter(Boolean),
   endpoints: [
     // The seed endpoint is used to populate the database with some example data
