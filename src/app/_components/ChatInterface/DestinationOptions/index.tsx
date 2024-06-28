@@ -60,7 +60,9 @@ const DestinationOptions: React.FC<DestinationOptionsProps> = ({ onSelectDestina
             />
             <div>
               <div className={styles.title}>Description</div>
-              <div className={styles.description}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, expedita!</div>
+              <div className={styles.description}>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, expedita!
+              </div>
             </div>
           </div>
         </>
