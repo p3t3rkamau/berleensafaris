@@ -9,7 +9,7 @@ COPY package*.json ./
 COPY yarn.lock ./
 
 # Install dependencies using --legacy-peer-deps
-RUN npm install --legacy-peer-deps
+RUN yarn install
 
 # Copy the rest of the application code
 COPY . .
@@ -32,7 +32,7 @@ COPY package*.json ./
 COPY yarn.lock ./
 
 # Install production dependencies using --legacy-peer-deps
-RUN npm install --legacy-peer-deps --production
+RUN yarn install --production
 
 # Copy built files from the builder stage
 COPY --from=base /home/node/app/dist ./dist
