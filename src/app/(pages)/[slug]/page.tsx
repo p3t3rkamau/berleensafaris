@@ -135,7 +135,6 @@ export default async function Page({ params: { slug = 'home' } }) {
   const noCategories = !Categories || Categories.length === 0
   const noAccordionData = !accordionData || accordionData.length === 0
 
-
   return (
     <React.Fragment>
       {/* <Hero {...hero} /> */}
