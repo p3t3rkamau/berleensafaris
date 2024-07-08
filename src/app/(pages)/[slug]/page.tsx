@@ -1,7 +1,6 @@
 import React from 'react'
 import { Metadata } from 'next'
 import { draftMode } from 'next/headers'
-import { NextResponse } from 'next/server'
 
 import { Page } from '../../../payload/payload-types'
 import { fetchDoc } from '../../_api/fetchDoc'
@@ -125,18 +124,17 @@ export default async function Page({ params: { slug = 'home' } }) {
   // you should delete this code once you have a home page in the CMS
   // this is really only useful for those who are demoing this template
   if (!page && slug === 'home') {
-    return NextResponse.redirect('/')
+    page = NotFound()
   }
 
   if (!page) {
-    // Redirect to home page if the page is not found
-    return NextResponse.redirect('/')
+    return NotFound()
   }
-
   const { hero, layout, Accordion: accordionData, HighlightImages, Categories } = page
   const noHighlightImages = !HighlightImages || HighlightImages.length === 0
   const noCategories = !Categories || Categories.length === 0
   const noAccordionData = !accordionData || accordionData.length === 0
+
 
   return (
     <React.Fragment>
