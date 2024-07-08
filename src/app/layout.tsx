@@ -32,10 +32,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           content="Experience the adventure of a lifetime with Berleen Safaris. Explore Africa's stunning wildlife and natural beauty on our expertly guided tours."
         />
         <meta property="og:url" content="https://berleensafaris.com/" />
-        <meta
-          property="og:image"
-          content="https://berleensafaris.com/beerleen.jpeg"
-        />
+        <meta property="og:image" content="https://berleensafaris.com/beerleen.jpeg" />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="en_US" />
         <meta name="twitter:card" content="summary_large_image" />
@@ -45,10 +42,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           name="twitter:description"
           content="Experience the adventure of a lifetime with Berleen Safaris. Explore Africa's stunning wildlife and natural beauty on our expertly guided tours."
         />
-        <meta
-          name="twitter:image"
-          content="https://berleensafaris.com/beerleen.jpeg"
-        />
+        <meta name="twitter:image" content="https://berleensafaris.com/beerleen.jpeg" />
         <meta
           name="google-site-verification"
           content="Zkz3mtUJtD707U1h_h79YiQy9vwjvaSon5ekZwiZ5LA"
