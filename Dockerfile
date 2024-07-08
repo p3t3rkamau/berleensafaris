@@ -53,10 +53,14 @@ CMD ["node", "dist/server.js"]
 # REVALIDATION_KEY=demo-revalation-key
 # NEXT_PRIVATE_REVALIDATION_KEY=demo-revalation-key
 # NEXT_PRIVATE_DRAFT_SECRET=demo-draft-secret
+
+
 # IK_PUBLIC_KEY=public_dFBn4JpdmWVhwdTePSkQmnimT3o=
 # IK_PRIVATE_KEY=private_pibywcBMyYjG1aq4J6VdwugzoTI=
 # IK_ENDPOINT=https://ik.imagekit.io/6cga8hi9z/
 # IMAGEKIT_URL=https://ik.imagekit.io/
+
+
 # IMAGEKIT_FOLDER_NAME=All_Products
 # NEXT_PUBLIC_GOOGLE_ANALYTICS=G-7KXD0B7Z19
 # GOOGLE_ANALYTICS=G-7KXD0B7Z19

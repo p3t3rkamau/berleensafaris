@@ -34,7 +34,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <meta property="og:url" content="https://berleensafaris.com/" />
         <meta
           property="og:image"
-          content="https://berleensafaris-d9f76eb.payloadcms.app/beerleen.jpeg"
+          content="https://berleensafaris.com/beerleen.jpeg"
         />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="en_US" />
@@ -47,7 +47,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         />
         <meta
           name="twitter:image"
-          content="https://berleensafaris-d9f76eb.payloadcms.app/beerleen.jpeg"
+          content="https://berleensafaris.com/beerleen.jpeg"
         />
         <meta
           name="google-site-verification"
@@ -63,7 +63,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
               description:
                 "Experience the adventure of a lifetime with Berleen Safaris. Explore Africa's stunning wildlife and natural beauty on our expertly guided tours.",
               url: 'https://berleensafaris.com/',
-              logo: 'https://berleensafaris-d9f76eb.payloadcms.app/beerleen.jpeg',
+              logo: 'https://berleensafaris.com/beerleen.jpeg',
               sameAs: [
                 'https://www.facebook.com/BerleenSafaris',
                 'https://twitter.com/BerleenSafaris',
@@ -73,21 +73,6 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             }),
           }}
         />
-        <Script
-          strategy="lazyOnload"
-          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GOOGLE_ANALYTICS}`}
-        />
-
-        <Script id="ga-script" strategy="lazyOnload">
-          {`
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', '${process.env.GOOGLE_ANALYTICS}', {
-                page_path: window.location.pathname,
-              });
-                  `}
-        </Script>
       </head>
       <body>
         <Providers>
