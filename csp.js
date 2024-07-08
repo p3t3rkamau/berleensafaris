@@ -1,5 +1,11 @@
 const policies = {
-  'default-src': ["'self'", 'https://imagekit.io', 'https://ik.imagekit.io/'],
+  'default-src': [
+    "'self'",
+    'https://imagekit.io',
+    'https://ik.imagekit.io/',
+    'https://media.giphy.com',
+    'https://giphy.com',
+  ],
   'script-src': [
     "'self'",
     "'unsafe-inline'",
@@ -9,6 +15,8 @@ const policies = {
     'https://maps.googleapis.com',
     'https://imagekit.io',
     'https://eu-central-1.aws.data.mongodb-api.com',
+    'https://analytics.google.com',
+    'https://google.com',
   ],
   'child-src': ["'self'"],
   'style-src': ["'self'", "'unsafe-inline'", 'https://fonts.googleapis.com'],
@@ -18,6 +26,8 @@ const policies = {
     'https://raw.githubusercontent.com',
     'https://imagekit.io',
     'https://ik.imagekit.io/',
+    'https://giphy.com',
+    'https://media.giphy.com',
   ],
   'font-src': ["'self'"],
   'frame-src': [
@@ -33,17 +43,21 @@ const policies = {
     'https://maps.googleapis.com',
     'https://imagekit.io',
     'https://ik.imagekit.io/',
-    'https://berleensafaris-d9f76eb.payloadcms.app/api/comments',
+    'https://lobster-app-vveq3.ondigitalocean.app/api/comments',
     'https://berleensafaris.com/api/comments',
     'https://berleensafaris.com/api/reviews',
-    'https://berleensafaris-d9f76eb.payloadcms.app/api/reviews',
+    'https://lobster-app-vveq3.ondigitalocean.app/api/reviews',
     'https://berleensafaris.com/api/form-submissions',
-    'https://berleensafaris-d9f76eb.payloadcms.app/api/form-submissions',
+    'https://lobster-app-vveq3.ondigitalocean.app/api/form-submissions',
     'https://berleensafaris.com',
-    'https://berleensafaris-d9f76eb.payloadcms.app', // Add this line to allow connections to the specified domain
+    'https://lobster-app-vveq3.ondigitalocean.app',
+    'https://giphy.com',
+    'https://media.giphy.com',
+    'https://analytics.google.com',
+    'https://google.com',
   ],
 }
-
+//function to gnerte xml
 module.exports = Object.entries(policies)
   .map(([key, value]) => {
     if (Array.isArray(value)) {

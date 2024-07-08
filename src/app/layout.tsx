@@ -1,4 +1,5 @@
 import React from 'react'
+import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google'
 import { Metadata } from 'next'
 import Script from 'next/script'
 
@@ -35,7 +36,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <meta property="og:url" content="https://berleensafaris.com/" />
         <meta
           property="og:image"
-          content="https://berleensafaris-d9f76eb.payloadcms.app/beerleen.jpeg"
+          content="https://berleensafaris.com/beerleen.jpeg"
         />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="en_US" />
@@ -48,7 +49,11 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         />
         <meta
           name="twitter:image"
-          content="https://berleensafaris-d9f76eb.payloadcms.app/beerleen.jpeg"
+          content="https://berleensafaris.com/beerleen.jpeg"
+        />
+        <meta
+          name="google-site-verification"
+          content="Zkz3mtUJtD707U1h_h79YiQy9vwjvaSon5ekZwiZ5LA"
         />
         <script
           type="application/ld+json"
@@ -60,7 +65,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
               description:
                 "Experience the adventure of a lifetime with Berleen Safaris. Explore Africa's stunning wildlife and natural beauty on our expertly guided tours.",
               url: 'https://berleensafaris.com/',
-              logo: 'https://berleensafaris-d9f76eb.payloadcms.app/beerleen.jpeg',
+              logo: 'https://berleensafaris.com/beerleen.jpeg',
               sameAs: [
                 'https://www.facebook.com/BerleenSafaris',
                 'https://twitter.com/BerleenSafaris',
@@ -86,6 +91,8 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           <Footer />
           <GoogleTagManagerInitializer />
         </Providers>
+        <GoogleAnalytics gaId="G-7KXD0B7Z19" />
+        <GoogleTagManager gtmId="G-7KXD0B7Z19" />
       </body>
     </html>
   )
