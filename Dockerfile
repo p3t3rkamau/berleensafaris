@@ -2,6 +2,11 @@
 FROM node:18-alpine AS base
 
 # Set the working directory
+WORKDIR /home/node/app
+
+# Copy package files
+COPY package*.json ./
+COPY yarn.lock ./
 
 # Install dependencies using --legacy-peer-deps
 RUN yarn install
