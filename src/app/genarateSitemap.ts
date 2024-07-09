@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next'
 
-const serverUrl = `${process.env.NEXT_PUBLIC_SERVER_URL}`
+const serverUrl = `https://berleensafaris.com`
 
 const generateSitemap = async (): Promise<string> => {
   const fetchPages = await fetch(`${serverUrl}/api/pages?limit=0`).then(res => res.json())
