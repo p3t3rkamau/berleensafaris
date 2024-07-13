@@ -54,9 +54,11 @@ const start = async (): Promise<void> => {
   app.get('/robots.txt', (req, res) => {
     const robotsTxt = `
       User-agent: *
+      Allow: /
       Disallow: /admin/
+      Host: https://berleensafaris.com
       
-      Sitemap: ${process.env.NEXT_PUBLIC_SERVER_URL}/sitemap.xml
+      Sitemap: https://berleensafaris.com/sitemap.xml
     `
     res.setHeader('Content-Type', 'text/plain')
     res.send(robotsTxt)
