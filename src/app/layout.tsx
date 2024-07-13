@@ -25,13 +25,13 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           name="description"
           content="Experience the adventure of a lifetime with Berleen Safaris. Explore Africa's stunning wildlife and natural beauty on our expertly guided tours."
         />
-        <link rel="canonical" href="https://berleensafaris.com/" />
+        <link rel="canonical" href="https://berleensafaris.com" />
         <meta property="og:title" content="Berleen Safaris - Explore Africa's Wildlife" />
         <meta
           property="og:description"
           content="Experience the adventure of a lifetime with Berleen Safaris. Explore Africa's stunning wildlife and natural beauty on our expertly guided tours."
         />
-        <meta property="og:url" content="https://berleensafaris.com/" />
+        <meta property="og:url" content="https://berleensafaris.com" />
         <meta property="og:image" content="https://berleensafaris.com/beerleen.jpeg" />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="en_US" />
@@ -56,7 +56,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
               name: 'Berleen Safaris',
               description:
                 "Experience the adventure of a lifetime with Berleen Safaris. Explore Africa's stunning wildlife and natural beauty on our expertly guided tours.",
-              url: 'https://berleensafaris.com/',
+              url: 'https://berleensafaris.com',
               logo: 'https://berleensafaris.com/beerleen.jpeg',
               sameAs: [
                 'https://www.facebook.com/BerleenSafaris',
@@ -78,8 +78,8 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           {/* @ts-expect-error */}
           <Footer />
         </Providers>
-        <GoogleAnalytics gaId="G-7KXD0B7Z19" />
-        <GoogleTagManager gtmId="G-7KXD0B7Z19" />
+        {/* <GoogleAnalytics gaId="G-7KXD0B7Z19" />
+        <GoogleTagManager gtmId="G-7KXD0B7Z19" /> */}
       </body>
     </html>
   )
