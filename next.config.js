@@ -7,6 +7,7 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   reactStrictMode: true,
+  staticPageGenerationTimeout: 300,
   swcMinify: true,
   images: {
     domains: ['localhost', process.env.NEXT_PUBLIC_SERVER_URL, 'ik.imagekit.io'],
